@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="15.0" prefHeight="510.0" prefWidth="567.0" styleClass="tableview">
+            <columns>
+                <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="39.0" text="S/N" />
+                <TableColumn fx:id="col_id" prefWidth="37.0" text="ID" />
+                <TableColumn fx:id="col_first_name" prefWidth="96.0" text="FIRST NAME" />
+                <TableColumn fx:id="col_last_name" prefWidth="97.0" text="LAST NAME" />
+                <TableColumn fx:id="col_email" prefWidth="105.0" text="E-MAIL" />
+                <TableColumn fx:id="col_gender" minWidth="0.0" prefWidth="74.0" text="GENDER" />
+            <TableColumn fx:id="col_age" prefWidth="57.0" text="AGE" />
+            <TableColumn fx:id="col_class" prefWidth="59.0" text="CLASS" />
+            </columns>
+        </TableView>
+      <VBox layoutX="673.0" layoutY="22.0" prefHeight="139.0" prefWidth="206.0" spacing="20.0">
+         <children>
+            <TextField />
+            <TextField />
+            <TextField layoutX="10.0" layoutY="35.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="676.0" layoutY="173.0" prefHeight="78.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <RadioButton mnemonicParsing="false" text="Gold" />
+            <RadioButton mnemonicParsing="false" text="Silver" />
+            <RadioButton mnemonicParsing="false" text="Diamond" />
+         </children>
+      </VBox>
+      <VBox layoutX="597.0" layoutY="22.0" prefHeight="116.0" prefWidth="71.0" spacing="30.0">
+         <children>
+            <Label text="FIRST NAME:" />
+            <Label layoutX="10.0" layoutY="10.0" text="LAST NAME:" />
+            <Label layoutX="10.0" layoutY="27.0" text="E-MAIL:" />
+         </children>
+      </VBox>
+      <Label layoutX="597.0" layoutY="173.0" text="CLASS:" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="626.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Add" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Update" />
+            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Delete" />
+         </children></HBox>
+      <HBox layoutX="633.0" layoutY="440.0" prefHeight="25.0" prefWidth="200.0" spacing="60.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="52.0" text="Open" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="52.0" text="Save" />
+         </children>
+      </HBox>
+      <Label layoutX="607.0" layoutY="257.0" text="Gender:" />
+      <HBox layoutX="662.0" layoutY="257.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
+         <children>
+            <RadioButton mnemonicParsing="false" text="Male" />
+            <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" />
+         </children>
+      </HBox>
+        
+    </children>
+</AnchorPane>
