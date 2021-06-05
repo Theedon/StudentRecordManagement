@@ -2,11 +2,11 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 
@@ -41,10 +41,58 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Students, String> col_class;
 
+
+    @FXML
+    private TextField text_first_name;
+
+    @FXML
+    private TextField text_last_name;
+
+    @FXML
+    private TextField text_email;
+
+
+    @FXML
+    ToggleGroup genderGroup;
+
+    @FXML
+    private RadioButton Male;
+
+    @FXML
+    private RadioButton Female;
+
+
+
+    @FXML
+    ToggleGroup classGroup;
+
+    @FXML
+    private RadioButton Gold;
+
+    @FXML
+    private RadioButton Silver;
+
+    @FXML
+    private RadioButton Diamond;
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        classGroup= new ToggleGroup();
+        Gold.setToggleGroup(classGroup);
+        Silver.setToggleGroup(classGroup);
+        Diamond.setToggleGroup(classGroup);
+
+
+        genderGroup= new ToggleGroup();
+        Male.setToggleGroup(genderGroup);
+        Female.setToggleGroup(genderGroup);
+
+
         showStudents();
     }
+
     public ObservableList<Students> getStudentsList(){
         ObservableList<Students> studentsList= FXCollections.observableArrayList();
         DatabaseConnection databaseConnection= new DatabaseConnection();
@@ -97,6 +145,46 @@ public class Controller implements Initializable {
         col_class.setCellValueFactory(new PropertyValueFactory<Students, String>("student_class"));
 
         tvPhoneTable.setItems(studentsList);
+
+    }
+
+    public void onClickAdd(ActionEvent event){
+        DatabaseConnection databaseConnection= new DatabaseConnection();
+        Connection connection= databaseConnection.getConnection();
+
+        String table_name = "phone_table";
+        String first_name= text_first_name.getText();
+        String last_name= text_last_name.getText();
+        String email= text_email.getText();
+        String gender, student_class;
+
+        gender= ((RadioButton) genderGroup.getSelectedToggle()).getText();
+        student_class= ((RadioButton) classGroup.getSelectedToggle()).getText();
+
+        PreparedStatement preparedStatement;
+
+
+        try{
+            preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, class, passport)" +
+                    "VALUES(?,?,?,?,?,?)");
+            preparedStatement.setString(1, first_name);
+            preparedStatement.setString(2, last_name);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, gender);
+            preparedStatement.setString(5, student_class);
+            preparedStatement.setString(6, null);
+
+
+
+
+            preparedStatement.execute();
+            showStudents();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

@@ -20,16 +20,19 @@
         </TableView>
       <VBox layoutX="673.0" layoutY="22.0" prefHeight="139.0" prefWidth="206.0" spacing="20.0">
          <children>
-            <TextField />
-            <TextField />
-            <TextField layoutX="10.0" layoutY="35.0" />
+            <TextField fx:id="text_first_name" />
+            <TextField fx:id="text_last_name" />
+            <TextField fx:id="text_email" layoutX="10.0" layoutY="35.0" />
          </children>
       </VBox>
       <VBox layoutX="676.0" layoutY="173.0" prefHeight="78.0" prefWidth="100.0" spacing="10.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="Gold" />
-            <RadioButton mnemonicParsing="false" text="Silver" />
-            <RadioButton mnemonicParsing="false" text="Diamond" />
+            <RadioButton fx:id="Gold" mnemonicParsing="false" text="Gold">
+                <ToggleGroup fx:id="classGroup" />
+            </RadioButton>
+
+            <RadioButton fx:id="Silver" mnemonicParsing="false" text="Silver" />
+            <RadioButton fx:id="Diamond" mnemonicParsing="false" text="Diamond" />
          </children>
       </VBox>
       <VBox layoutX="597.0" layoutY="22.0" prefHeight="116.0" prefWidth="71.0" spacing="30.0">
@@ -40,10 +43,10 @@
          </children>
       </VBox>
       <Label layoutX="597.0" layoutY="173.0" text="CLASS:" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="626.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="passport_image" fitHeight="150.0" fitWidth="200.0" layoutX="626.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
       <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Add" />
+            <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" text="Add" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Update" />
             <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Delete" />
          </children></HBox>
@@ -56,8 +59,10 @@
       <Label layoutX="607.0" layoutY="257.0" text="Gender:" />
       <HBox layoutX="662.0" layoutY="257.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="Male" />
-            <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" />
+            <RadioButton fx:id="Male" mnemonicParsing="false" text="Male">
+                <ToggleGroup fx:id="genderGroup" />
+            </RadioButton>
+            <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" />
          </children>
       </HBox>
         
