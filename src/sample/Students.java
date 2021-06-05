@@ -7,17 +7,20 @@ public class Students {
     private int id;
     private String firstName;
     private String lastName;
+    private String email;
     private String gender;
     private String student_class;
     private Image image;
 
 
-    public Students(int serialNumber, int id, String firstName, String lastName, String gender, Image image) {
+    public Students(int serialNumber, int id, String firstName, String lastName, String email, String gender, String student_class, Image image) {
         this.serialNumber = serialNumber;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email= email;
         this.gender = gender;
+        this.student_class=  student_class;
         this.image = image;
     }
 
@@ -53,12 +56,28 @@ public class Students {
         this.lastName = lastName;
     }
 
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email= email;
+    }
+
     public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getStudent_class() {
+        return student_class;
+    }
+
+    public void setStudent_class(String student_class) {
+        this.student_class = student_class;
     }
 
     public Image getImage() {
