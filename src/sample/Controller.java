@@ -9,13 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
+    Students currentClickedStudent;
 
     @FXML
     private TableView<Students> tvPhoneTable;
@@ -186,6 +190,94 @@ public class Controller implements Initializable {
         }
 
 
+    }
+
+    public void onClickUpdate(ActionEvent event){
+        DatabaseConnection databaseConnection= new DatabaseConnection();
+        Connection connection= databaseConnection.getConnection();
+
+
+        String table_name = "students";
+        String first_name= text_first_name.getText();
+        String last_name= text_last_name.getText();
+        String email= text_email.getText();
+        String gender, student_class;
+
+        gender= ((RadioButton) genderGroup.getSelectedToggle()).getText();
+        student_class= ((RadioButton) classGroup.getSelectedToggle()).getText();
+
+        PreparedStatement preparedStatement;
+
+
+        try{
+            preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, class=?, passport= ? WHERE id= ?");
+            preparedStatement.setString(1, first_name);
+            preparedStatement.setString(2, last_name);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, gender);
+            preparedStatement.setString(5, student_class);
+            preparedStatement.setBlob(6, (InputStream) null);
+            preparedStatement.setInt(7, currentClickedStudent.getId());
+
+
+
+
+            preparedStatement.execute();
+            showStudents();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void onClickDelete(ActionEvent event){
+        DatabaseConnection databaseConnection= new DatabaseConnection();
+        Connection connection= databaseConnection.getConnection();
+
+        try {
+            PreparedStatement preparedStatement= connection.prepareStatement("DELETE FROM students WHERE id=?");
+            preparedStatement.setInt(1, currentClickedStudent.getId());
+            preparedStatement.execute();
+            showStudents();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @FXML
+    private void onTableRowClicked(MouseEvent event){
+        currentClickedStudent= tvPhoneTable.getSelectionModel().getSelectedItem();
+        loadData();
+    }
+
+
+    public void loadData(){
+        text_first_name.setText(currentClickedStudent.getFirstName());
+        text_last_name.setText(currentClickedStudent.getLastName());
+        text_email.setText(currentClickedStudent.getEmail());
+
+        if(currentClickedStudent.getGender().equals("Male")){
+            genderGroup.selectToggle(Male);
+        }
+        else {
+            genderGroup.selectToggle(Female);
+        }
+
+        if(currentClickedStudent.getStudent_class().equals("Gold")){
+            classGroup.selectToggle(Gold);
+        }
+        else if(currentClickedStudent.getStudent_class().equals("Silver")){
+            classGroup.selectToggle(Silver);
+        }
+        else{
+            classGroup.selectToggle(Diamond);
+        }
     }
 
 

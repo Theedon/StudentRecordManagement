@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="15.0" prefHeight="510.0" prefWidth="567.0" styleClass="tableview">
+        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="15.0" onMouseClicked="#onTableRowClicked" prefHeight="510.0" prefWidth="567.0" styleClass="tableview">
             <columns>
                 <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="39.0" text="S/N" />
                 <TableColumn fx:id="col_id" prefWidth="37.0" text="ID" />
@@ -47,8 +47,8 @@
       <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" text="Add" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Update" />
-            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="64.0" text="Delete" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" text="Update" />
+            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" text="Delete" />
          </children></HBox>
       <HBox layoutX="633.0" layoutY="440.0" prefHeight="25.0" prefWidth="200.0" spacing="60.0">
          <children>
