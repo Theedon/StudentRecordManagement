@@ -30,8 +30,8 @@ public class Controller implements Initializable {
 
     Students currentClickedStudent;
 
-    FileInputStream passportFileInputStream;
-    int passportLength;
+    FileInputStream passportFileInputStream= null;
+    int passportLength= 0;
 
     @FXML
     private TableView<Students> tvPhoneTable;
@@ -191,7 +191,7 @@ public class Controller implements Initializable {
             preparedStatement.setString(3, email);
             preparedStatement.setString(4, gender);
             preparedStatement.setString(5, student_class);
-            preparedStatement.setString(6, null);
+            preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
 
 
 
@@ -232,7 +232,7 @@ public class Controller implements Initializable {
             preparedStatement.setString(3, email);
             preparedStatement.setString(4, gender);
             preparedStatement.setString(5, student_class);
-            preparedStatement.setBlob(6, (InputStream) null);
+            preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
             preparedStatement.setInt(7, currentClickedStudent.getId());
 
 

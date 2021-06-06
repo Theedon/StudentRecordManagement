@@ -50,12 +50,6 @@
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" text="Update" />
             <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" text="Delete" />
          </children></HBox>
-      <HBox layoutX="633.0" layoutY="440.0" prefHeight="25.0" prefWidth="200.0" spacing="60.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="59.0" text="Upload" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Save" />
-         </children>
-      </HBox>
       <Label layoutX="607.0" layoutY="257.0" text="Gender:" />
       <HBox layoutX="662.0" layoutY="257.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
          <children>
@@ -65,6 +59,7 @@
             <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" />
          </children>
       </HBox>
+      <Button layoutX="679.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="108.0" text="Upload passport" />
         
     </children>
 </AnchorPane>
