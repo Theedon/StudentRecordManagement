@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,9 +10,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
@@ -20,6 +29,9 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     Students currentClickedStudent;
+
+    FileInputStream passportFileInputStream;
+    int passportLength;
 
     @FXML
     private TableView<Students> tvPhoneTable;
@@ -78,6 +90,9 @@ public class Controller implements Initializable {
 
     @FXML
     private RadioButton Diamond;
+
+    @FXML
+    private ImageView passport_image;
 
 
 
@@ -291,6 +306,32 @@ public class Controller implements Initializable {
         classGroup.selectToggle(null);
         currentClickedStudent= null;
     }
+
+    public void onClickUploadImage(ActionEvent event){
+        FileChooser fileChooser= new FileChooser();
+        FileChooser.ExtensionFilter ext1= new FileChooser.ExtensionFilter("JPG files(*.jpg)","*.JPG");
+        FileChooser.ExtensionFilter ext2= new FileChooser.ExtensionFilter("PNG files(*.png)","*.PNG");
+        fileChooser.getExtensionFilters().addAll(ext1, ext2);
+        File file= fileChooser.showOpenDialog(passport_image.getScene().getWindow());
+
+        BufferedImage bufferedImage;
+        try {
+            bufferedImage= ImageIO.read(file);
+            Image image= SwingFXUtils.toFXImage(bufferedImage, null);
+            passport_image.setImage(image);
+            FileInputStream fileInputStream= new FileInputStream(file);
+            int len= (int) file.length();
+
+            passportFileInputStream= fileInputStream;
+            passportLength= len;
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 
