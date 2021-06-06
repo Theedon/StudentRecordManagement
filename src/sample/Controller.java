@@ -182,6 +182,7 @@ public class Controller implements Initializable {
 
 
             preparedStatement.execute();
+            clearInputFields();
             showStudents();
             connection.close();
 
@@ -223,6 +224,7 @@ public class Controller implements Initializable {
 
 
             preparedStatement.execute();
+            clearInputFields();
             showStudents();
             connection.close();
 
@@ -241,6 +243,7 @@ public class Controller implements Initializable {
             PreparedStatement preparedStatement= connection.prepareStatement("DELETE FROM students WHERE id=?");
             preparedStatement.setInt(1, currentClickedStudent.getId());
             preparedStatement.execute();
+            clearInputFields();
             showStudents();
             connection.close();
         } catch (SQLException e) {
@@ -278,6 +281,15 @@ public class Controller implements Initializable {
         else{
             classGroup.selectToggle(Diamond);
         }
+    }
+
+    public void clearInputFields(){
+        text_first_name.setText(null);
+        text_last_name.setText(null);
+        text_email.setText(null);
+        genderGroup.selectToggle(null);
+        classGroup.selectToggle(null);
+        currentClickedStudent= null;
     }
 
 
