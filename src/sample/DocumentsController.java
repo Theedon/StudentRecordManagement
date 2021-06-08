@@ -18,6 +18,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DocumentsController implements Initializable {
@@ -214,6 +217,32 @@ public class DocumentsController implements Initializable {
     }
 
     public  void onClickSubmit(ActionEvent event){
+
+        DatabaseConnection databaseConnection= new DatabaseConnection();
+        Connection connection= databaseConnection.getConnection();
+        PreparedStatement preparedStatement;
+
+        if(student.getGuarantor_img()==null || student.getOlevel_img()==null ||
+                student.getGuarantor_img()==null || student.getJamb_img()==null){
+
+        }
+        else {
+            try {
+                preparedStatement= connection.prepareStatement("UPDATE students SET admission_img= ?, olevel_img=?, guarantor_img=?, jamb_img=? WHERE id= ?");
+                preparedStatement.setBinaryStream(1, admissionFileInputStream, lenAdmission);
+                preparedStatement.setBinaryStream(2, OlevelFileInputStream, lenOlevel);
+                preparedStatement.setBinaryStream(3, GuarantorFileInputStream, lenGuarantor);
+                preparedStatement.setBinaryStream(4, JambFileInputStream, lenJamb);
+                preparedStatement.setInt(5, student.getId());
+                preparedStatement.execute();
+                System.out.println("successful");
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
 
     }
 
