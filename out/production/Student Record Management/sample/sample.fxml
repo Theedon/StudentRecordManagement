@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="900.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="15.0" onMouseClicked="#onTableRowClicked" prefHeight="510.0" prefWidth="567.0" styleClass="tableview">
             <columns>
@@ -37,18 +37,18 @@
       </VBox>
       <VBox layoutX="597.0" layoutY="22.0" prefHeight="116.0" prefWidth="71.0" spacing="30.0">
          <children>
-            <Label text="FIRST NAME:" />
-            <Label layoutX="10.0" layoutY="10.0" text="LAST NAME:" />
-            <Label layoutX="10.0" layoutY="27.0" text="E-MAIL:" />
+            <Label styleClass="labels" text="FIRST NAME:" />
+            <Label layoutX="10.0" layoutY="10.0" styleClass="labels" text="LAST NAME:" />
+            <Label layoutX="10.0" layoutY="27.0" styleClass="labels" text="E-MAIL:" />
          </children>
       </VBox>
-      <Label layoutX="597.0" layoutY="173.0" text="CLASS:" />
+      <Label layoutX="597.0" layoutY="173.0" styleClass="labels" text="CLASS:" />
       <ImageView fx:id="passport_image" fitHeight="150.0" fitWidth="200.0" layoutX="626.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
       <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" text="Add" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" text="Update" />
-            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Add" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Update" />
+            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Delete" />
          </children></HBox>
       <Label layoutX="607.0" layoutY="257.0" text="Gender:" />
       <HBox layoutX="662.0" layoutY="257.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
@@ -59,7 +59,7 @@
             <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" />
          </children>
       </HBox>
-      <Button layoutX="679.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="108.0" text="Upload passport" />
+      <Button layoutX="679.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
         
     </children>
 </AnchorPane>
