@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 
 import javax.imageio.ImageIO;
@@ -325,8 +324,8 @@ public class Controller implements Initializable {
     @FXML
     private void onTableRowClicked(MouseEvent event){
         currentClickedStudent= tvPhoneTable.getSelectionModel().getSelectedItem();
-        if (currentClickedStudent.getImage()!=null){
-            passport_image.setImage(currentClickedStudent.getImage());
+        if (currentClickedStudent.getPassport()!=null){
+            passport_image.setImage(currentClickedStudent.getPassport());
         }
         loadData();
     }
