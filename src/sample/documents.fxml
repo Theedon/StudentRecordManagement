@@ -6,14 +6,14 @@
 
 <AnchorPane prefHeight="574.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocumentsController">
    <children>
-      <ImageView fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="admission_view" fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="231.0" fitWidth="200.0" layoutX="443.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="231.0" fitWidth="200.0" layoutX="443.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="308.0" layoutY="538.0" mnemonicParsing="false" text="SUBMIT" />
-      <Button layoutX="54.0" layoutY="253.0" mnemonicParsing="false" text="Upload Admission Letter" />
-      <Button layoutX="478.0" layoutY="253.0" mnemonicParsing="false" text="Upload O'level Result" />
-      <Button layoutX="52.0" layoutY="525.0" mnemonicParsing="false" text="Upload Guarantor's Form" />
-      <Button layoutX="482.0" layoutY="525.0" mnemonicParsing="false" text="Upload Jamb Result" />
+      <Button layoutX="308.0" layoutY="538.0" mnemonicParsing="false" onAction="#onClickSubmit" text="SUBMIT" />
+      <Button layoutX="54.0" layoutY="253.0" mnemonicParsing="false" onAction="#onClickAdmission" text="Upload Admission Letter" />
+      <Button fx:id="upload_view" layoutX="478.0" layoutY="253.0" mnemonicParsing="false" onAction="#onClickOlevel" text="Upload O'level Result" />
+      <Button fx:id="guarantor_view" layoutX="52.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickGuarantor" text="Upload Guarantor's Form" />
+      <Button fx:id="jamb_view" layoutX="482.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickJamb" text="Upload Jamb Result" />
    </children>
 </AnchorPane>
