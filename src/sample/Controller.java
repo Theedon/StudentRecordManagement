@@ -254,35 +254,64 @@ public class Controller implements Initializable {
         String first_name= text_first_name.getText();
         String last_name= text_last_name.getText();
         String email= text_email.getText();
-        String gender, student_class;
+        RadioButton selectedGender, selectedStudentClass;
 
-        gender= ((RadioButton) genderGroup.getSelectedToggle()).getText();
-        student_class= ((RadioButton) classGroup.getSelectedToggle()).getText();
+        selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
+        selectedStudentClass= ((RadioButton) classGroup.getSelectedToggle());
+
 
         PreparedStatement preparedStatement;
 
 
-        try{
-            preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, class=?, passport= ? WHERE id= ?");
-            preparedStatement.setString(1, first_name);
-            preparedStatement.setString(2, last_name);
-            preparedStatement.setString(3, email);
-            preparedStatement.setString(4, gender);
-            preparedStatement.setString(5, student_class);
-            preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
-            preparedStatement.setInt(7, currentClickedStudent.getId());
-
-
-
-
-            preparedStatement.execute();
-            clearInputFields();
-            showStudents();
-            connection.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(currentClickedStudent==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please pick a row to be updated");
+            alert.show();
         }
+
+        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null ||
+                selectedStudentClass==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please fill out the fields");
+            alert.show();
+        }
+
+        else if (ValidateInput.ValidateEmail(email)==false){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("make sure your email is correct");
+            alert.show();
+        }
+
+        else {
+            String gender = selectedGender.getText();
+            String student_class = selectedStudentClass.getText();
+
+            try{
+                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, class=?, passport= ? WHERE id= ?");
+                preparedStatement.setString(1, first_name);
+                preparedStatement.setString(2, last_name);
+                preparedStatement.setString(3, email);
+                preparedStatement.setString(4, gender);
+                preparedStatement.setString(5, student_class);
+                preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
+                preparedStatement.setInt(7, currentClickedStudent.getId());
+
+
+
+
+                preparedStatement.execute();
+                clearInputFields();
+                showStudents();
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+
 
 
     }
@@ -291,16 +320,24 @@ public class Controller implements Initializable {
         DatabaseConnection databaseConnection= new DatabaseConnection();
         Connection connection= databaseConnection.getConnection();
 
-        try {
-            PreparedStatement preparedStatement= connection.prepareStatement("DELETE FROM students WHERE id=?");
-            preparedStatement.setInt(1, currentClickedStudent.getId());
-            preparedStatement.execute();
-            clearInputFields();
-            showStudents();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if(currentClickedStudent==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please pick a row to be deleted");
+            alert.show();
         }
+        else {
+            try {
+                PreparedStatement preparedStatement= connection.prepareStatement("DELETE FROM students WHERE id=?");
+                preparedStatement.setInt(1, currentClickedStudent.getId());
+                preparedStatement.execute();
+                clearInputFields();
+                showStudents();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
     }
