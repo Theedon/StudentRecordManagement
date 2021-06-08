@@ -129,6 +129,15 @@ public class Controller implements Initializable {
             int serialNumber=1;
             Image image= null;
             while (resultSet.next()){
+
+                InputStream inputStream= resultSet.getBinaryStream("passport");
+                if(inputStream!=null){
+                    image= new Image(inputStream);
+                }
+
+
+
+
                 students= new Students(serialNumber,
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),
@@ -155,6 +164,8 @@ public class Controller implements Initializable {
 
     public void showStudents(){
         ObservableList<Students> studentsList= getStudentsList();
+
+
         col_sn.setCellValueFactory(new PropertyValueFactory<Students, Integer>("serialNumber"));
         col_id.setCellValueFactory(new PropertyValueFactory<Students, Integer>("id"));
         col_first_name.setCellValueFactory(new PropertyValueFactory<Students, String>("firstName"));
@@ -162,6 +173,9 @@ public class Controller implements Initializable {
         col_email.setCellValueFactory(new PropertyValueFactory<Students, String>("email"));
         col_gender.setCellValueFactory(new PropertyValueFactory<Students, String>("gender"));
         col_class.setCellValueFactory(new PropertyValueFactory<Students, String>("student_class"));
+
+
+
 
         tvPhoneTable.setItems(studentsList);
 
@@ -271,6 +285,9 @@ public class Controller implements Initializable {
     @FXML
     private void onTableRowClicked(MouseEvent event){
         currentClickedStudent= tvPhoneTable.getSelectionModel().getSelectedItem();
+        if (currentClickedStudent.getImage()!=null){
+            passport_image.setImage(currentClickedStudent.getImage());
+        }
         loadData();
     }
 
