@@ -157,7 +157,7 @@ public class Controller implements Initializable {
         col_last_name.setCellValueFactory(new PropertyValueFactory<Students, String>("lastName"));
         col_email.setCellValueFactory(new PropertyValueFactory<Students, String>("email"));
         col_gender.setCellValueFactory(new PropertyValueFactory<Students, String>("gender"));
-        col_class.setCellValueFactory(new PropertyValueFactory<Students, String>("student_class"));
+
 
 
 
