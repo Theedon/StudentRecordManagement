@@ -19,7 +19,7 @@ public class Students {
 
 
     public Students(int serialNumber, int id, String firstName, String lastName, String email, String gender,
-                    String student_class, Image passport, Image admission_img, Image olevel_img,
+                    Image passport, Image admission_img, Image olevel_img,
                     Image guarantor_img, Image jamb_img) {
         this.serialNumber = serialNumber;
         this.id = id;

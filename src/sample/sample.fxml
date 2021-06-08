@@ -46,7 +46,7 @@
             <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="radio" text="Female" />
          </children>
       </HBox>
-      <Button layoutX="695.0" layoutY="380.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
+      <Button layoutX="695.0" layoutY="380.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
         <Button layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickUploadDocuments" prefHeight="25.0" prefWidth="133.0" text="Upload documents" />
         <Button layoutX="758.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickViewDocuments" prefHeight="25.0" prefWidth="126.0" text="View Documents" />
         

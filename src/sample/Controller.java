@@ -5,14 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 
 import javax.imageio.ImageIO;
@@ -27,6 +31,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    String intent;
     Students currentClickedStudent;
 
     FileInputStream passportFileInputStream= null;
@@ -128,8 +133,7 @@ public class Controller implements Initializable {
                         resultSet.getString("last_name"),
                         resultSet.getString("email"),
                         resultSet.getString("gender"),
-                        resultSet.getString("class"),
-                        image
+                        image, image, image, image, image
 
                 );
                 studentsList.add(students);
@@ -354,7 +358,7 @@ public class Controller implements Initializable {
         currentClickedStudent= null;
     }
 
-    public void onClickUploadImage(ActionEvent event){
+    public void onClickUploadPassport(ActionEvent event){
         FileChooser fileChooser= new FileChooser();
         FileChooser.ExtensionFilter ext1= new FileChooser.ExtensionFilter("JPG files(*.jpg)","*.JPG");
         FileChooser.ExtensionFilter ext2= new FileChooser.ExtensionFilter("PNG files(*.png)","*.PNG");
@@ -377,6 +381,70 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void onClickUploadDocuments(ActionEvent event){
+        intent= "upload";
+
+
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("documents.fxml"));
+
+        try{
+            Parent root= (Parent) loader.load();
+
+            DocumentsController documentsController= loader.getController();
+
+            if(currentClickedStudent==null){
+                Alert alert= new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Select a row to be updated first");
+                alert.show();
+            }
+            else {
+                documentsController.sendData(currentClickedStudent, intent);
+                Stage stage= new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Update student documents");
+                stage.show();
+            }
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void onClickViewDocuments(ActionEvent event){
+        intent= "view";
+
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("documents.fxml"));
+
+        try{
+            Parent root= (Parent) loader.load();
+
+            DocumentsController documentsController= loader.getController();
+
+            if(currentClickedStudent==null){
+                Alert alert= new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Select a row to be viewed first");
+                alert.show();
+            }
+            else {
+                documentsController.sendData(currentClickedStudent, intent);
+                Stage stage= new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("view student documents");
+                stage.show();
+            }
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 
 
 
