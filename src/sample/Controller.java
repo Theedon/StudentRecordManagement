@@ -79,17 +79,6 @@ public class Controller implements Initializable {
 
 
 
-    @FXML
-    ToggleGroup classGroup;
-
-    @FXML
-    private RadioButton Gold;
-
-    @FXML
-    private RadioButton Silver;
-
-    @FXML
-    private RadioButton Diamond;
 
     @FXML
     private ImageView passport_image;
@@ -98,10 +87,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        classGroup= new ToggleGroup();
-        Gold.setToggleGroup(classGroup);
-        Silver.setToggleGroup(classGroup);
-        Diamond.setToggleGroup(classGroup);
 
 
         genderGroup= new ToggleGroup();
@@ -190,17 +175,15 @@ public class Controller implements Initializable {
         String last_name= text_last_name.getText();
         String email= text_email.getText();
         RadioButton selectedGender;
-        RadioButton selectedStudentClass;
+
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
-        selectedStudentClass= ((RadioButton) classGroup.getSelectedToggle());
 
 
         PreparedStatement preparedStatement;
 
 
-        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null ||
-        selectedStudentClass==null) {
+        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -214,17 +197,16 @@ public class Controller implements Initializable {
 
         else {
             String gender= selectedGender.getText();
-            String student_class= selectedStudentClass.getText();
+
 
             try{
-                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, class, passport)" +
+                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, passport)" +
                         "VALUES(?,?,?,?,?,?)");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
                 preparedStatement.setString(4, gender);
-                preparedStatement.setString(5, student_class);
-                preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
+                preparedStatement.setBinaryStream(5, passportFileInputStream, passportLength);
 
 
 
@@ -254,10 +236,10 @@ public class Controller implements Initializable {
         String first_name= text_first_name.getText();
         String last_name= text_last_name.getText();
         String email= text_email.getText();
-        RadioButton selectedGender, selectedStudentClass;
+        RadioButton selectedGender;
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
-        selectedStudentClass= ((RadioButton) classGroup.getSelectedToggle());
+
 
 
         PreparedStatement preparedStatement;
@@ -269,8 +251,7 @@ public class Controller implements Initializable {
             alert.show();
         }
 
-        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null ||
-                selectedStudentClass==null) {
+        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -284,17 +265,16 @@ public class Controller implements Initializable {
 
         else {
             String gender = selectedGender.getText();
-            String student_class = selectedStudentClass.getText();
+
 
             try{
-                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, class=?, passport= ? WHERE id= ?");
+                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, passport= ? WHERE id= ?");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
                 preparedStatement.setString(4, gender);
-                preparedStatement.setString(5, student_class);
-                preparedStatement.setBinaryStream(6, passportFileInputStream, passportLength);
-                preparedStatement.setInt(7, currentClickedStudent.getId());
+                preparedStatement.setBinaryStream(5, passportFileInputStream, passportLength);
+                preparedStatement.setInt(6, currentClickedStudent.getId());
 
 
 
@@ -364,15 +344,7 @@ public class Controller implements Initializable {
             genderGroup.selectToggle(Female);
         }
 
-        if(currentClickedStudent.getStudent_class().equals("Gold")){
-            classGroup.selectToggle(Gold);
-        }
-        else if(currentClickedStudent.getStudent_class().equals("Silver")){
-            classGroup.selectToggle(Silver);
-        }
-        else{
-            classGroup.selectToggle(Diamond);
-        }
+
     }
 
     public void clearInputFields(){
@@ -380,7 +352,6 @@ public class Controller implements Initializable {
         text_last_name.setText(null);
         text_email.setText(null);
         genderGroup.selectToggle(null);
-        classGroup.selectToggle(null);
         currentClickedStudent= null;
     }
 

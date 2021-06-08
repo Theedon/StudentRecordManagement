@@ -72,13 +72,6 @@ public class Students {
         this.gender = gender;
     }
 
-    public String getStudent_class() {
-        return student_class;
-    }
-
-    public void setStudent_class(String student_class) {
-        this.student_class = student_class;
-    }
 
     public Image getImage() {
         return image;
