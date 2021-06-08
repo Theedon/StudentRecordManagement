@@ -30,15 +30,15 @@
             <Label layoutX="10.0" layoutY="27.0" styleClass="labels" text="E-MAIL:" />
          </children>
       </VBox>
-      <ImageView fx:id="passport_image" fitHeight="150.0" fitWidth="200.0" layoutX="626.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="200.0" layoutX="668.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
       <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
          <children>
             <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Add" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Update" />
             <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Delete" />
          </children></HBox>
-      <Label layoutX="579.0" layoutY="262.0" styleClass="labels" text="Gender:" />
-      <HBox layoutX="676.0" layoutY="257.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
+      <Label layoutX="579.0" layoutY="178.0" styleClass="labels" text="Gender:" />
+      <HBox layoutX="671.0" layoutY="175.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
          <children>
             <RadioButton fx:id="Male" mnemonicParsing="false" styleClass="radio" text="Male">
                 <ToggleGroup fx:id="genderGroup" />
@@ -46,7 +46,9 @@
             <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="radio" text="Female" />
          </children>
       </HBox>
-      <Button layoutX="679.0" layoutY="444.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
+      <Button layoutX="695.0" layoutY="380.0" mnemonicParsing="false" onAction="#onClickUploadImage" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
+      <Button layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickUploadDocuments" prefHeight="25.0" prefWidth="133.0" text="Upload documents" />
+      <Button layoutX="758.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickViewDocuments" prefHeight="25.0" prefWidth="126.0" text="View Documents" />
         
     </children>
 </AnchorPane>
