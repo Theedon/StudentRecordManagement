@@ -253,11 +253,9 @@ public class DocumentsController implements Initializable {
 
         if (admissionFileInputStream == null || OlevelFileInputStream == null ||
                 GuarantorFileInputStream == null || JambFileInputStream == null) {
-            System.out.println("suspect");
-            System.out.println(admissionFileInputStream);
-            System.out.println(OlevelFileInputStream);
-            System.out.println(GuarantorFileInputStream);
-            System.out.println(JambFileInputStream);
+            Alert alert= new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("make sure you have uploaded all documents");
+            alert.show();
         } else {
             try {
                 preparedStatement = connection.prepareStatement("UPDATE students SET admission_img= ?, olevel_img=?, guarantor_img=?, jamb_img=? WHERE id= ?");
