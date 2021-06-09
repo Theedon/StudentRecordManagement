@@ -75,6 +75,8 @@ public class DocumentsController implements Initializable {
     public void sendData(Students currentClickedStudent, String intent){
         student= currentClickedStudent;
 
+
+
         if(intent.equals("view")){
             admission_view.setImage(student.getAdmission_img());
             olevel_view.setImage(student.getOlevel_img());
@@ -118,14 +120,22 @@ public class DocumentsController implements Initializable {
 
         BufferedImage bufferedImage;
         try {
-            bufferedImage= ImageIO.read(file);
-            Image image= SwingFXUtils.toFXImage(bufferedImage, null);
-            admission_view.setImage(image);
-            FileInputStream fileInputStream= new FileInputStream(file);
-            int len= (int) file.length();
+            if(file!=null){
 
-            admissionFileInputStream= fileInputStream;
-            lenAdmission= len;
+                bufferedImage= ImageIO.read(file);
+                Image image= SwingFXUtils.toFXImage(bufferedImage, null);
+                admission_view.setImage(image);
+                FileInputStream fileInputStream= new FileInputStream(file);
+                int len= (int) file.length();
+
+                admissionFileInputStream= fileInputStream;
+                lenAdmission= len;
+            }
+
+            else {
+                //do nothing;
+            }
+
 
 
         } catch (IOException e) {
@@ -146,14 +156,21 @@ public class DocumentsController implements Initializable {
 
         BufferedImage bufferedImage;
         try {
-            bufferedImage= ImageIO.read(file);
-            Image image= SwingFXUtils.toFXImage(bufferedImage, null);
-            olevel_view.setImage(image);
-            FileInputStream fileInputStream= new FileInputStream(file);
-            int len= (int) file.length();
+            if(file!=null){
+                bufferedImage= ImageIO.read(file);
+                Image image= SwingFXUtils.toFXImage(bufferedImage, null);
+                olevel_view.setImage(image);
+                FileInputStream fileInputStream= new FileInputStream(file);
+                int len= (int) file.length();
 
-            OlevelFileInputStream= fileInputStream;
-            lenOlevel= len;
+                OlevelFileInputStream= fileInputStream;
+                lenOlevel= len;
+            }
+            else {
+                //do nothing
+            }
+
+
 
 
         } catch (IOException e) {
@@ -173,14 +190,21 @@ public class DocumentsController implements Initializable {
 
         BufferedImage bufferedImage;
         try {
-            bufferedImage= ImageIO.read(file);
-            Image image= SwingFXUtils.toFXImage(bufferedImage, null);
-            guarantor_view.setImage(image);
-            FileInputStream fileInputStream= new FileInputStream(file);
-            int len= (int) file.length();
+            if(file!=null){
+                bufferedImage= ImageIO.read(file);
+                Image image= SwingFXUtils.toFXImage(bufferedImage, null);
+                guarantor_view.setImage(image);
+                FileInputStream fileInputStream= new FileInputStream(file);
+                int len= (int) file.length();
 
-            GuarantorFileInputStream= fileInputStream;
-            lenGuarantor= len;
+                GuarantorFileInputStream= fileInputStream;
+                lenGuarantor= len;
+
+            }
+
+            else{
+                //do nothing
+            }
 
 
         } catch (IOException e) {
@@ -200,14 +224,20 @@ public class DocumentsController implements Initializable {
 
         BufferedImage bufferedImage;
         try {
-            bufferedImage= ImageIO.read(file);
-            Image image= SwingFXUtils.toFXImage(bufferedImage, null);
-            jamb_view.setImage(image);
-            FileInputStream fileInputStream= new FileInputStream(file);
-            int len= (int) file.length();
+            if(file!=null){
+                bufferedImage= ImageIO.read(file);
+                Image image= SwingFXUtils.toFXImage(bufferedImage, null);
+                jamb_view.setImage(image);
+                FileInputStream fileInputStream= new FileInputStream(file);
+                int len= (int) file.length();
 
-            JambFileInputStream= fileInputStream;
-            lenJamb= len;
+                JambFileInputStream= fileInputStream;
+                lenJamb= len;
+            }
+            else {
+                //do nothing
+            }
+
 
 
         } catch (IOException e) {
@@ -222,9 +252,16 @@ public class DocumentsController implements Initializable {
         Connection connection= databaseConnection.getConnection();
         PreparedStatement preparedStatement;
 
-        if(student.getGuarantor_img()==null || student.getOlevel_img()==null ||
-                student.getGuarantor_img()==null || student.getJamb_img()==null){
 
+
+
+        if(admissionFileInputStream==null || OlevelFileInputStream==null ||
+                GuarantorFileInputStream==null || JambFileInputStream==null){
+            System.out.println("suspect");
+            System.out.println(admissionFileInputStream);
+            System.out.println(OlevelFileInputStream);
+            System.out.println(GuarantorFileInputStream);
+            System.out.println(JambFileInputStream);
         }
         else {
             try {

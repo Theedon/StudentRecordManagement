@@ -116,13 +116,50 @@ public class Controller implements Initializable {
 
             Students students;
             int serialNumber=1;
-            Image image= null;
+            Image passport= null;
+            Image admission= null;
+            Image olevel= null;
+            Image guarantor= null;
+            Image jamb= null;
+
             while (resultSet.next()){
 
-                InputStream inputStream= resultSet.getBinaryStream("passport");
-                if(inputStream!=null){
-                    image= new Image(inputStream);
+                InputStream passportInputStream= resultSet.getBinaryStream("passport");
+
+                InputStream admissionInputStream= resultSet.getBinaryStream("admission_img");
+
+
+                InputStream olevelInputStream= resultSet.getBinaryStream("olevel_img");
+
+
+                InputStream guarantorInputStream= resultSet.getBinaryStream("guarantor_img");
+
+
+                InputStream jambInputStream= resultSet.getBinaryStream("jamb_img");
+
+
+                if(passportInputStream!=null){
+                    passport= new Image(passportInputStream);
                 }
+
+                if(admissionInputStream!=null){
+                    admission= new Image(admissionInputStream);
+                }
+
+                if(olevelInputStream!=null){
+                    olevel= new Image(olevelInputStream);
+                }
+
+                if(guarantorInputStream!=null){
+                    guarantor= new Image(guarantorInputStream);
+                }
+
+                if(jambInputStream!=null){
+                    jamb= new Image(jambInputStream);
+                }
+
+
+
 
 
 
@@ -133,7 +170,11 @@ public class Controller implements Initializable {
                         resultSet.getString("last_name"),
                         resultSet.getString("email"),
                         resultSet.getString("gender"),
-                        image, image, image, image, image
+                        passport,
+                        admission,
+                        olevel,
+                        guarantor,
+                        jamb
 
                 );
                 studentsList.add(students);
@@ -204,7 +245,7 @@ public class Controller implements Initializable {
 
             try{
                 preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, passport)" +
-                        "VALUES(?,?,?,?,?,?)");
+                        "VALUES(?,?,?,?,?)");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
