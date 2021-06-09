@@ -258,7 +258,7 @@ public class Controller implements Initializable {
                 preparedStatement.execute();
                 clearInputFields();
                 showStudents();
-                connection.close();
+
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -392,10 +392,14 @@ public class Controller implements Initializable {
     }
 
     public void clearInputFields(){
+        Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("successful");
+        alert.show();
         text_first_name.setText(null);
         text_last_name.setText(null);
         text_email.setText(null);
         genderGroup.selectToggle(null);
+        passport_image.setImage(null);
         currentClickedStudent= null;
     }
 
