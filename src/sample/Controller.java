@@ -447,7 +447,7 @@ public class Controller implements Initializable {
                 documentsController.sendData(currentClickedStudent, intent);
                 Stage stage= new Stage();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Update student documents");
+                stage.setTitle("Upload student documents");
                 stage.show();
             }
 
