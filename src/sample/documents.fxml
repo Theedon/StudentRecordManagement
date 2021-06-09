@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="574.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocumentsController">
+<AnchorPane prefHeight="574.0" prefWidth="657.0" style="-fx-background-color: #DDDDDD;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocumentsController">
    <children>
       <ImageView fx:id="admission_view" fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="guarantor_view" fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
