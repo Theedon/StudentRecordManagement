@@ -15,5 +15,9 @@
       <Button fx:id="btnOlevel" layoutX="478.0" layoutY="253.0" mnemonicParsing="false" onAction="#onClickOlevel" text="Upload O'level Result" />
       <Button fx:id="btnGuarantor" layoutX="52.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickGuarantor" text="Upload Guarantor's Form" />
       <Button fx:id="btnJamb" layoutX="482.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickJamb" text="Upload Jamb Result" />
+      <Label fx:id="admission_label" layoutX="83.0" layoutY="270.0" text="Admission Letter" />
+      <Label fx:id="olevel_label" layoutX="507.0" layoutY="270.0" text="O'level Result" />
+      <Label fx:id="guarantor_label" layoutX="83.0" layoutY="542.0" text="Guarantor's form" />
+      <Label fx:id="jamb_label" layoutX="508.0" layoutY="542.0" text="Jamb Result" />
    </children>
 </AnchorPane>
