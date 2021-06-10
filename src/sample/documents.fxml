@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="574.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocumentsController">
+<AnchorPane prefHeight="574.0" prefWidth="657.0" style="-fx-background-color: #DDDDDD;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DocumentsController">
    <children>
       <ImageView fx:id="admission_view" fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="guarantor_view" fitHeight="231.0" fitWidth="200.0" layoutX="27.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
@@ -15,9 +15,9 @@
       <Button fx:id="btnOlevel" layoutX="478.0" layoutY="253.0" mnemonicParsing="false" onAction="#onClickOlevel" text="Upload O'level Result" />
       <Button fx:id="btnGuarantor" layoutX="52.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickGuarantor" text="Upload Guarantor's Form" />
       <Button fx:id="btnJamb" layoutX="482.0" layoutY="525.0" mnemonicParsing="false" onAction="#onClickJamb" text="Upload Jamb Result" />
-      <Label fx:id="admission_label" layoutX="83.0" layoutY="270.0" text="Admission Letter" />
-      <Label fx:id="olevel_label" layoutX="507.0" layoutY="270.0" text="O'level Result" />
-      <Label fx:id="guarantor_label" layoutX="83.0" layoutY="542.0" text="Guarantor's form" />
-      <Label fx:id="jamb_label" layoutX="508.0" layoutY="542.0" text="Jamb Result" />
+      <Label fx:id="admission_label" layoutX="83.0" layoutY="270.0" styleClass="labels" text="Admission Letter" />
+      <Label fx:id="olevel_label" layoutX="507.0" layoutY="270.0" styleClass="labels" text="O'level Result" />
+      <Label fx:id="guarantor_label" layoutX="83.0" layoutY="542.0" styleClass="labels" text="Guarantor's form" />
+      <Label fx:id="jamb_label" layoutX="508.0" layoutY="542.0" styleClass="labels" text="Jamb Result" />
    </children>
 </AnchorPane>
