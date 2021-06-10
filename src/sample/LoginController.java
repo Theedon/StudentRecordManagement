@@ -46,7 +46,7 @@ public class LoginController implements Initializable {
             alert.show();
 
             Stage currentStage= (Stage) id_textfield.getScene().getWindow();
-            currentStage.close();
+
 
 
 
@@ -57,6 +57,7 @@ public class LoginController implements Initializable {
             stage.setTitle("Student Record Managent System");
             stage.show();
             alert.close();
+            currentStage.close();
 
         }
 
