@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Login"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="278.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+   <children>
+      <TextField fx:id="id_text_view" layoutX="97.0" layoutY="78.0" />
+      <Button layoutX="146.0" layoutY="139.0" mnemonicParsing="false" onAction="#onClickLogin" text="Login" />
+   </children>
 </AnchorPane>
