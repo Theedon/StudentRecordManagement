@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -73,6 +74,19 @@ public class DocumentsController implements Initializable {
     @FXML
     private Button btnSubmit;
 
+    @FXML
+    private Label admission_label;
+
+    @FXML
+    private Label olevel_label;
+
+    @FXML
+    private Label guarantor_label;
+
+    @FXML
+    private Label jamb_label;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -103,6 +117,12 @@ public class DocumentsController implements Initializable {
         }
 
         if (intent.equals("upload")) {
+
+            admission_label.setVisible(false);
+            olevel_label.setVisible(false);
+            guarantor_label.setVisible(false);
+            jamb_label.setVisible(false);
+
 
             if (admission != null && olevel != null && guarantor != null &&
                     jamb != null) {
