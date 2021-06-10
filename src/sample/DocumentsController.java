@@ -122,15 +122,12 @@ public class DocumentsController implements Initializable {
             olevel_label.setVisible(false);
             guarantor_label.setVisible(false);
             jamb_label.setVisible(false);
+            getImages();
 
-
-            if (admission != null && olevel != null && guarantor != null &&
-                    jamb != null) {
-                admission_view.setImage(admission);
-                olevel_view.setImage(olevel);
-                guarantor_view.setImage(guarantor);
-                jamb_view.setImage(jamb);
-            }
+            admission_view.setImage(admission);
+            olevel_view.setImage(olevel);
+            guarantor_view.setImage(guarantor);
+            jamb_view.setImage(jamb);
 
 
         }

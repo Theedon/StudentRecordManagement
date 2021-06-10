@@ -33,8 +33,6 @@ public class LoginController implements Initializable {
     }
 
     public void onClickLogin(ActionEvent event) throws IOException {
-
-        System.out.println(id_textfield.getText());
         userInput= id_textfield.getText();
 
 
