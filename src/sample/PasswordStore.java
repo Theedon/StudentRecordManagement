@@ -2,9 +2,9 @@ package sample;
 
 public class PasswordStore {
 
-    String pass= "fuoye";
-    String wo= "compu";
-    String rd= "ter001";
+    final String pass= "fuoye";
+    final String wo= "compu";
+    final String rd= "ter001";
 
 
 }
