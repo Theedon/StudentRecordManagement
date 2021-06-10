@@ -403,6 +403,15 @@ public class Controller implements Initializable {
         currentClickedStudent= null;
     }
 
+    public void onClickClear(ActionEvent event){
+        text_first_name.setText(null);
+        text_last_name.setText(null);
+        text_email.setText(null);
+        genderGroup.selectToggle(null);
+        passport_image.setImage(null);
+        currentClickedStudent= null;
+    }
+
     public void onClickUploadPassport(ActionEvent event){
         FileChooser fileChooser= new FileChooser();
         FileChooser.ExtensionFilter ext1= new FileChooser.ExtensionFilter("JPG files(*.jpg)","*.JPG");
