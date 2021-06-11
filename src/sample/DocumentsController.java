@@ -285,6 +285,8 @@ public class DocumentsController implements Initializable {
                 Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("successful");
                 alert.show();
+                Stage stage= (Stage) olevel_view.getScene().getWindow();
+                stage.close();
                 connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
