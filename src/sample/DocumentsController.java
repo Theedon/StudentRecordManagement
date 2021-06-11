@@ -287,7 +287,6 @@ public class DocumentsController implements Initializable {
                 alert.show();
                 Stage stage= (Stage) olevel_view.getScene().getWindow();
                 stage.close();
-                connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

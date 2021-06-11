@@ -326,7 +326,7 @@ public class Controller implements Initializable {
                 preparedStatement.execute();
                 clearInputFields();
                 showStudents();
-                connection.close();
+
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -356,7 +356,7 @@ public class Controller implements Initializable {
                 preparedStatement.execute();
                 clearInputFields();
                 showStudents();
-                connection.close();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
