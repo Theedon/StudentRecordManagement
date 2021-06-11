@@ -369,10 +369,12 @@ public class Controller implements Initializable {
     @FXML
     private void onTableRowClicked(MouseEvent event){
         currentClickedStudent= tvPhoneTable.getSelectionModel().getSelectedItem();
-        if (currentClickedStudent.getPassport()!=null){
-            passport_image.setImage(currentClickedStudent.getPassport());
+        if(currentClickedStudent!=null){
+            if (currentClickedStudent.getPassport()!=null){
+                passport_image.setImage(currentClickedStudent.getPassport());
+            }
+            loadData();
         }
-        loadData();
     }
 
 
