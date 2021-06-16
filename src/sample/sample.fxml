@@ -39,7 +39,7 @@
       <RadioButton fx:id="Male" layoutX="1101.0" layoutY="465.0" mnemonicParsing="false" prefWidth="88.0" styleClass="radio" text="Male">
           <ToggleGroup fx:id="genderGroup" />
       </RadioButton>
-      <RadioButton fx:id="Female" layoutX="1208.0" layoutY="473.0" mnemonicParsing="false" styleClass="radio" text="Female" />
+      <RadioButton fx:id="Female" layoutX="1208.0" layoutY="465.0" mnemonicParsing="false" styleClass="radio" text="Female" />
       <Label layoutX="626.0" layoutY="331.0" styleClass="labels" text="MIDDLE NAME" />
       <Label layoutX="628.0" layoutY="394.0" styleClass="labels" text="FACULTY" />
       <Label layoutX="629.0" layoutY="458.0" styleClass="labels" text="DEPARTMENT" />

@@ -21,31 +21,31 @@
             </columns>
         </TableView>
       <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="175.0" layoutX="662.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="1013.0" layoutY="474.0" styleClass="labels" text="GENDER" />
+      <Label layoutX="1013.0" layoutY="466.0" styleClass="labels" text="GENDER" />
       <Button layoutX="687.0" layoutY="179.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
         <Button layoutX="1156.0" layoutY="80.0" mnemonicParsing="false" onAction="#onClickOlevel" prefHeight="25.0" prefWidth="151.0" text="O'LEVEL RESULT" />
       <Button layoutX="617.0" layoutY="624.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="44.0" text="Refresh" />
       <Button layoutX="955.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Update" />
       <Button layoutX="1172.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Delete" />
       <Button layoutX="734.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Add" />
-      <TextField fx:id="text_first_name" layoutX="733.0" layoutY="253.0" prefHeight="31.0" prefWidth="261.0" promptText="First Name" />
-      <TextField fx:id="text_last_name" layoutX="1101.0" layoutY="245.0" prefHeight="31.0" prefWidth="233.0" promptText="Last Name" />
-      <TextField fx:id="text_middle_name" layoutX="733.0" layoutY="326.0" prefHeight="31.0" prefWidth="261.0" promptText="Middle Name" />
-      <TextField fx:id="text_faculty" layoutX="733.0" layoutY="401.0" prefHeight="31.0" prefWidth="261.0" promptText="Faculty" />
-      <TextField fx:id="text_department" layoutX="733.0" layoutY="466.0" prefHeight="31.0" prefWidth="261.0" promptText="Department" />
-      <Label layoutX="625.0" layoutY="253.0" styleClass="labels" text="FIRST NAME" />
-      <Label layoutX="1013.0" layoutY="253.0" styleClass="labels" text="LAST NAME" />
-      <Label layoutX="1012.0" layoutY="326.0" styleClass="labels" text="MATRIC NO" />
-      <RadioButton fx:id="Male" layoutX="1101.0" layoutY="473.0" mnemonicParsing="false" prefWidth="88.0" styleClass="radio" text="Male">
+      <TextField fx:id="text_first_name" layoutX="733.0" layoutY="253.0" prefHeight="31.0" prefWidth="233.0" promptText="First Name" />
+      <TextField fx:id="text_last_name" layoutX="1101.0" layoutY="253.0" prefHeight="31.0" prefWidth="233.0" promptText="Last Name" />
+      <TextField fx:id="text_middle_name" layoutX="733.0" layoutY="323.0" prefHeight="31.0" prefWidth="233.0" promptText="Middle Name" />
+      <TextField fx:id="text_faculty" layoutX="733.0" layoutY="386.0" prefHeight="31.0" prefWidth="233.0" promptText="Faculty" />
+      <TextField fx:id="text_department" layoutX="733.0" layoutY="449.0" prefHeight="31.0" prefWidth="233.0" promptText="Department" />
+      <Label layoutX="625.0" layoutY="261.0" styleClass="labels" text="FIRST NAME" />
+      <Label layoutX="1013.0" layoutY="261.0" styleClass="labels" text="LAST NAME" />
+      <Label layoutX="1013.0" layoutY="331.0" styleClass="labels" text="MATRIC NO" />
+      <RadioButton fx:id="Male" layoutX="1101.0" layoutY="465.0" mnemonicParsing="false" prefWidth="88.0" styleClass="radio" text="Male">
           <ToggleGroup fx:id="genderGroup" />
       </RadioButton>
-      <RadioButton fx:id="Female" layoutX="1208.0" layoutY="473.0" mnemonicParsing="false" styleClass="radio" text="Female" />
-      <Label layoutX="625.0" layoutY="334.0" styleClass="labels" text="MIDDLE NAME" />
-      <Label layoutX="625.0" layoutY="403.0" styleClass="labels" text="FACULTY" />
-      <Label layoutX="628.0" layoutY="474.0" styleClass="labels" text="DEPARTMENT" />
-      <Label layoutX="1017.0" layoutY="403.0" styleClass="labels" text="EMAIL:" />
-      <TextField fx:id="text_email" layoutX="1102.0" layoutY="395.0" prefHeight="31.0" prefWidth="233.0" promptText="E-mail" />
-      <TextField fx:id="text_matric_no" layoutX="1101.0" layoutY="318.0" prefHeight="31.0" prefWidth="233.0" promptText="Matric no" />
+      <RadioButton fx:id="Female" layoutX="1208.0" layoutY="465.0" mnemonicParsing="false" styleClass="radio" text="Female" />
+      <Label layoutX="626.0" layoutY="331.0" styleClass="labels" text="MIDDLE NAME" />
+      <Label layoutX="628.0" layoutY="394.0" styleClass="labels" text="FACULTY" />
+      <Label layoutX="629.0" layoutY="458.0" styleClass="labels" text="DEPARTMENT" />
+      <Label layoutX="1013.0" layoutY="403.0" styleClass="labels" text="EMAIL:" />
+      <TextField fx:id="text_email" layoutX="1102.0" layoutY="386.0" prefHeight="31.0" prefWidth="233.0" promptText="E-mail" />
+      <TextField fx:id="text_matric_no" layoutX="1101.0" layoutY="323.0" prefHeight="31.0" prefWidth="233.0" promptText="Matric no" />
       <Button layoutX="1156.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickAdmission" prefHeight="25.0" prefWidth="151.0" text="ADMISSION LETTER" />
       <Button layoutX="1156.0" layoutY="119.0" mnemonicParsing="false" onAction="#onClickGuarantor" prefHeight="25.0" prefWidth="151.0" text="GUARANTOR LETTER" />
       <Button layoutX="1156.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickJamb" prefHeight="25.0" prefWidth="151.0" text="JAMB RESULT" />
