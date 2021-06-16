@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560" prefWidth="900" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="15.0" onMouseClicked="#onTableRowClicked" prefHeight="539.0" prefWidth="567.0" styleClass="tableview">
+        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="2.0" onMouseClicked="#onTableRowClicked" prefHeight="650.0" prefWidth="612.0" styleClass="tableview">
             <columns>
                 <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="39.0" text="S/N" />
                 <TableColumn fx:id="col_id" prefWidth="41.0" text="ID" />
@@ -24,40 +16,36 @@
                 <TableColumn fx:id="col_gender" minWidth="0.0" prefWidth="89.0" text="GENDER" />
             </columns>
         </TableView>
-      <VBox layoutX="673.0" layoutY="22.0" prefHeight="139.0" prefWidth="206.0" spacing="20.0">
-         <children>
-            <TextField fx:id="text_first_name" />
-            <TextField fx:id="text_last_name" />
-            <TextField fx:id="text_email" layoutX="10.0" layoutY="35.0" />
-         </children>
-      </VBox>
-      <VBox layoutX="582.0" layoutY="22.0" prefHeight="116.0" prefWidth="86.0" spacing="30.0">
-         <children>
-            <Label styleClass="labels" text="FIRST NAME:" />
-            <Label layoutX="10.0" layoutY="10.0" styleClass="labels" text="LAST NAME:" />
-            <Label layoutX="10.0" layoutY="27.0" styleClass="labels" text="E-MAIL:" />
-         </children>
-      </VBox>
-      <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="200.0" layoutX="668.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
-      <HBox layoutX="604.0" layoutY="485.0" prefHeight="45.0" prefWidth="258.0" spacing="35.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#onClickAdd" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Add" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Update" />
-            <Button layoutX="89.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="42.0" prefWidth="64.0" styleClass="buttons" text="Delete" />
-         </children></HBox>
-      <Label layoutX="579.0" layoutY="178.0" styleClass="labels" text="Gender:" />
-      <HBox layoutX="671.0" layoutY="175.0" prefHeight="25.0" prefWidth="142.0" spacing="30.0">
-         <children>
-            <RadioButton fx:id="Male" mnemonicParsing="false" styleClass="radio" text="Male">
-                <ToggleGroup fx:id="genderGroup" />
-            </RadioButton>
-            <RadioButton fx:id="Female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="radio" text="Female" />
-         </children>
-      </HBox>
-      <Button layoutX="695.0" layoutY="380.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
-        <Button layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickUploadDocuments" prefHeight="25.0" prefWidth="133.0" text="Upload documents" />
-        <Button layoutX="758.0" layoutY="430.0" mnemonicParsing="false" onAction="#onClickViewDocuments" prefHeight="25.0" prefWidth="126.0" text="View Documents" />
-      <Button layoutX="686.0" layoutY="534.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="15.0" prefWidth="94.0" text="Refresh" />
+      <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="175.0" layoutX="662.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="1013.0" layoutY="474.0" styleClass="labels" text="GENDER" />
+      <Button layoutX="687.0" layoutY="179.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
+        <Button layoutX="1156.0" layoutY="80.0" mnemonicParsing="false" onAction="#onClickOlevel" prefHeight="25.0" prefWidth="151.0" text="O'LEVEL RESULT" />
+      <Button layoutX="617.0" layoutY="624.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="44.0" text="Refresh" />
+      <Button layoutX="955.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Update" />
+      <Button layoutX="1172.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Delete" />
+      <Button layoutX="734.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Add" />
+      <TextField fx:id="text_first_name" layoutX="733.0" layoutY="253.0" prefHeight="31.0" prefWidth="261.0" promptText="First Name" />
+      <TextField fx:id="text_last_name" layoutX="1101.0" layoutY="245.0" prefHeight="31.0" prefWidth="233.0" promptText="Last Name" />
+      <TextField fx:id="text_middle_name" layoutX="733.0" layoutY="326.0" prefHeight="31.0" prefWidth="261.0" promptText="Middle Name" />
+      <TextField fx:id="text_faculty" layoutX="733.0" layoutY="401.0" prefHeight="31.0" prefWidth="261.0" promptText="Faculty" />
+      <TextField fx:id="text_department" layoutX="733.0" layoutY="466.0" prefHeight="31.0" prefWidth="261.0" promptText="Department" />
+      <Label layoutX="625.0" layoutY="253.0" styleClass="labels" text="FIRST NAME" />
+      <Label layoutX="1013.0" layoutY="253.0" styleClass="labels" text="LAST NAME" />
+      <Label layoutX="1012.0" layoutY="326.0" styleClass="labels" text="MATRIC NO" />
+      <RadioButton fx:id="Male" layoutX="1101.0" layoutY="473.0" mnemonicParsing="false" prefWidth="88.0" styleClass="radio" text="Male">
+          <ToggleGroup fx:id="genderGroup" />
+      </RadioButton>
+      <RadioButton fx:id="Female" layoutX="1208.0" layoutY="473.0" mnemonicParsing="false" styleClass="radio" text="Female" />
+      <Label layoutX="625.0" layoutY="334.0" styleClass="labels" text="MIDDLE NAME" />
+      <Label layoutX="625.0" layoutY="403.0" styleClass="labels" text="FACULTY" />
+      <Label layoutX="628.0" layoutY="474.0" styleClass="labels" text="DEPARTMENT" />
+      <Label layoutX="1017.0" layoutY="403.0" styleClass="labels" text="EMAIL:" />
+      <TextField fx:id="text_email" layoutX="1102.0" layoutY="395.0" prefHeight="31.0" prefWidth="233.0" promptText="E-mail" />
+      <TextField fx:id="text_matric_no" layoutX="1101.0" layoutY="318.0" prefHeight="31.0" prefWidth="233.0" promptText="Matric no" />
+      <Button layoutX="1156.0" layoutY="41.0" mnemonicParsing="false" onAction="#onClickAdmission" prefHeight="25.0" prefWidth="151.0" text="ADMISSION LETTER" />
+      <Button layoutX="1156.0" layoutY="119.0" mnemonicParsing="false" onAction="#onClickGuarantor" prefHeight="25.0" prefWidth="151.0" text="GUARANTOR LETTER" />
+      <Button layoutX="1156.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickJamb" prefHeight="25.0" prefWidth="151.0" text="JAMB RESULT" />
+      <Label layoutX="1012.0" layoutY="45.0" styleClass="labels" text="Upload Documents:" />
         
     </children>
 </AnchorPane>

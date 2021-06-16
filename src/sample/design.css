@@ -13,8 +13,8 @@
 .button{
     -fx-text-fill: #FFFFAB;
     -fx-border-color: -fx-secondary;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
     -fx-background-color: #000000;
     -fx-font-family: verdana;
 }
