@@ -59,7 +59,19 @@ public class Controller implements Initializable {
     private TableColumn<Students, String> col_gender;
 
     @FXML
-    private TableColumn<Students, String> col_class;
+    private TableColumn<Students, String> col_matric_no;
+
+    @FXML
+    private TableColumn<Students, String> col_middle_name;
+
+    @FXML
+    private TableColumn<Students, String> col_faculty;
+
+    @FXML
+    private TableColumn<Students, String> col_department;
+
+
+
 
 
     @FXML
@@ -70,6 +82,18 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField text_email;
+
+    @FXML
+    private TextField text_matric_no;
+
+    @FXML
+    private TextField text_middle_name;
+
+    @FXML
+    private TextField text_faculty;
+
+    @FXML
+    private TextField text_department;
 
 
     @FXML
@@ -126,6 +150,13 @@ public class Controller implements Initializable {
 
                 InputStream passportInputStream= resultSet.getBinaryStream("passport");
 
+                if(passportInputStream!=null){
+                    passport= new Image(passportInputStream);
+                }
+                /*
+                //we only need the below code if we want to show the documents on this page but we dont
+
+
                 InputStream admissionInputStream= resultSet.getBinaryStream("admission_img");
 
 
@@ -138,9 +169,7 @@ public class Controller implements Initializable {
                 InputStream jambInputStream= resultSet.getBinaryStream("jamb_img");
 
 
-                if(passportInputStream!=null){
-                    passport= new Image(passportInputStream);
-                }
+
 
                 if(admissionInputStream!=null){
                     admission= new Image(admissionInputStream);
@@ -158,6 +187,8 @@ public class Controller implements Initializable {
                     jamb= new Image(jambInputStream);
                 }
 
+                   */
+
 
 
 
@@ -167,9 +198,13 @@ public class Controller implements Initializable {
                 students= new Students(serialNumber,
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),
+                        resultSet.getString("middle_name"),
                         resultSet.getString("last_name"),
                         resultSet.getString("email"),
                         resultSet.getString("gender"),
+                        resultSet.getString("matric_no"),
+                        resultSet.getString("faculty"),
+                        resultSet.getString("department"),
                         passport,
                         admission,
                         olevel,
@@ -198,9 +233,14 @@ public class Controller implements Initializable {
         col_sn.setCellValueFactory(new PropertyValueFactory<Students, Integer>("serialNumber"));
         col_id.setCellValueFactory(new PropertyValueFactory<Students, Integer>("id"));
         col_first_name.setCellValueFactory(new PropertyValueFactory<Students, String>("firstName"));
+        col_middle_name.setCellValueFactory(new PropertyValueFactory<Students, String>("middleName"));
         col_last_name.setCellValueFactory(new PropertyValueFactory<Students, String>("lastName"));
         col_email.setCellValueFactory(new PropertyValueFactory<Students, String>("email"));
         col_gender.setCellValueFactory(new PropertyValueFactory<Students, String>("gender"));
+        col_faculty.setCellValueFactory(new PropertyValueFactory<Students, String>("faculty"));
+        col_department.setCellValueFactory(new PropertyValueFactory<Students, String>("department"));
+        col_matric_no.setCellValueFactory(new PropertyValueFactory<Students, String>("matric_no"));
+
 
 
 
@@ -218,6 +258,10 @@ public class Controller implements Initializable {
         String first_name= text_first_name.getText();
         String last_name= text_last_name.getText();
         String email= text_email.getText();
+        String matric_no= text_matric_no.getText();
+        String middle_name= text_middle_name.getText();
+        String faculty= text_faculty.getText();
+        String department= text_department.getText();
         RadioButton selectedGender;
 
 
@@ -244,13 +288,18 @@ public class Controller implements Initializable {
 
 
             try{
-                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, passport)" +
-                        "VALUES(?,?,?,?,?)");
+                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, matric_no,  middle_name, faculty, department, passport)" +
+                        "VALUES(?,?,?,?,?,?,?,?,?)");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
                 preparedStatement.setString(4, gender);
-                preparedStatement.setBinaryStream(5, passportFileInputStream, passportLength);
+                preparedStatement.setString(5, matric_no);
+                preparedStatement.setString(6, middle_name);
+                preparedStatement.setString(7, faculty);
+                preparedStatement.setString(8, department);
+
+                preparedStatement.setBinaryStream(9, passportFileInputStream, passportLength);
 
 
 
@@ -383,6 +432,11 @@ public class Controller implements Initializable {
         text_last_name.setText(currentClickedStudent.getLastName());
         text_email.setText(currentClickedStudent.getEmail());
 
+        text_matric_no.setText(currentClickedStudent.getMatric_no());
+        text_middle_name.setText(currentClickedStudent.getMiddleName());
+        text_faculty.setText(currentClickedStudent.getFaculty());
+        text_department.setText(currentClickedStudent.getDepartment());
+
         if(currentClickedStudent.getGender().equals("Male")){
             genderGroup.selectToggle(Male);
         }
@@ -400,6 +454,11 @@ public class Controller implements Initializable {
         text_first_name.setText(null);
         text_last_name.setText(null);
         text_email.setText(null);
+
+        text_matric_no.setText(null);
+        text_middle_name.setText(null);
+        text_faculty.setText(null);
+        text_department.setText(null);
         genderGroup.selectToggle(null);
         passport_image.setImage(null);
         currentClickedStudent= null;
@@ -409,6 +468,11 @@ public class Controller implements Initializable {
         text_first_name.setText(null);
         text_last_name.setText(null);
         text_email.setText(null);
+
+        text_matric_no.setText(null);
+        text_middle_name.setText(null);
+        text_faculty.setText(null);
+        text_department.setText(null);
         genderGroup.selectToggle(null);
         passport_image.setImage(null);
         currentClickedStudent= null;
@@ -438,7 +502,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void onClickUploadDocuments(ActionEvent event){
+   /* public void onClickUploadDocuments(ActionEvent event){
         intent= "upload";
 
 
@@ -467,8 +531,9 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
 
-    }
+    } */
 
+    /*
     public void onClickViewDocuments(ActionEvent event){
         intent= "view";
 
@@ -499,7 +564,24 @@ public class Controller implements Initializable {
 
 
     }
+    */
 
+
+    public void onClickAdmission(ActionEvent event){
+
+    }
+
+    public void onClickOlevel(ActionEvent event){
+
+    }
+
+    public void onClickGuarantor(ActionEvent event){
+
+    }
+
+    public void onClickJamb(ActionEvent event){
+
+    }
 
 
 

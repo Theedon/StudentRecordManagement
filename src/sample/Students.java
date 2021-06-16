@@ -21,7 +21,7 @@ public class Students {
     private Image jamb_img;
 
 
-    public Students(int serialNumber, int id, String firstName, String middleName, String lastName, String email, String gender, String student_class, String matric_no, String faculty, String department, Image passport, Image admission_img, Image olevel_img, Image guarantor_img, Image jamb_img) {
+    public Students(int serialNumber, int id, String firstName, String middleName, String lastName, String email, String gender, String matric_no, String faculty, String department, Image passport, Image admission_img, Image olevel_img, Image guarantor_img, Image jamb_img) {
         this.serialNumber = serialNumber;
         this.id = id;
         this.firstName = firstName;
@@ -29,7 +29,6 @@ public class Students {
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
-        this.student_class = student_class;
         this.matric_no = matric_no;
         this.faculty = faculty;
         this.department = department;

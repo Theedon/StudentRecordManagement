@@ -8,15 +8,16 @@
     <children>
         <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="2.0" onMouseClicked="#onTableRowClicked" prefHeight="650.0" prefWidth="612.0" styleClass="tableview">
             <columns>
-                <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="39.0" text="S/N" />
-                <TableColumn fx:id="col_id" prefWidth="41.0" text="ID" />
-            <TableColumn fx:id="col_matric_no" prefWidth="75.0" text="MATRIC NO" />
-                <TableColumn fx:id="col_first_name" prefWidth="78.00001525878906" text="FIRST NAME" />
-                <TableColumn fx:id="col_middle_name" minWidth="0.0" prefWidth="66.0" text="MIDDLE NAME" />
-                <TableColumn fx:id="col_last_name" prefWidth="78.0" text="LAST NAME" />
-                <TableColumn fx:id="col_email" prefWidth="84.0" text="E-MAIL" />
-            <TableColumn fx:id="col_faculty" minWidth="0.0" prefWidth="57.0" text="FACULTY" />
-            <TableColumn fx:id="col_department" minWidth="0.0" prefWidth="92.0" text="DEPARTMENT" />
+                <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="29.0" text="S/N" />
+                <TableColumn fx:id="col_id" prefWidth="24.0" text="ID" />
+            <TableColumn fx:id="col_matric_no" prefWidth="75.99995422363281" text="MATRIC NO" />
+                <TableColumn fx:id="col_first_name" prefWidth="76.0" text="FIRST NAME" />
+                <TableColumn fx:id="col_middle_name" minWidth="0.0" prefWidth="63.0" text="MIDDLE NAME" />
+                <TableColumn fx:id="col_last_name" prefWidth="76.0" text="LAST NAME" />
+            <TableColumn fx:id="col_gender" minWidth="0.0" prefWidth="56.0" text="GENDER" />
+                <TableColumn fx:id="col_email" prefWidth="61.0" text="E-MAIL" />
+            <TableColumn fx:id="col_department" minWidth="0.0" prefWidth="94.0" text="DEPARTMENT" />
+            <TableColumn fx:id="col_faculty" minWidth="0.0" prefWidth="56.0" text="FACULTY" />
             </columns>
         </TableView>
       <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="175.0" layoutX="662.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
