@@ -3,10 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="278.0" prefWidth="343.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+<AnchorPane prefHeight="278.0" prefWidth="343.0" style="-fx-background-color: #333333;" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
    <children>
-      <TextField fx:id="id_textfield" layoutX="102.0" layoutY="76.0" prefHeight="48.0" prefWidth="203.0" />
-      <Button layoutX="140.0" layoutY="154.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="48.0" prefWidth="126.0" text="Login" />
-      <Label layoutX="8.0" layoutY="92.0" styleClass="labels" text="PASSCODE:" />
+      <TextField fx:id="id_textfield" layoutX="42.0" layoutY="89.0" prefHeight="39.0" prefWidth="263.0" promptText="ADMIN" style="-fx-background-color: #333333;" />
+      <Button layoutX="242.0" layoutY="153.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="39.0" prefWidth="63.0" text="Login" />
+      <Label layoutX="115.0" layoutY="29.0" style="-fx-font-size: 20;" styleClass="labels" text="LOGIN PAGE" />
+      <Label layoutX="42.0" layoutY="139.0" styleClass="labels" text="forgot password?" />
    </children>
 </AnchorPane>
