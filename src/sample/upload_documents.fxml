@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.UploadDocuments"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="500.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UploadDocuments">
+   <children>
+      <Button layoutX="286.0" layoutY="561.0" mnemonicParsing="false" onAction="#onClickSubmitDocument" prefHeight="25.0" prefWidth="104.0" text="SUBMIT" />
+      <Label fx:id="text_label" layoutX="175.0" layoutY="14.0" prefHeight="25.0" prefWidth="142.0" styleClass="labels" stylesheets="@design.css" text="ADMISSION LETTER" />
+      <ImageView fx:id="imageDocument" fitHeight="456.0" fitWidth="365.0" layoutX="68.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="93.0" layoutY="561.0" mnemonicParsing="false" onAction="#onClickOpenDocument" prefHeight="25.0" prefWidth="104.0" text="OPEN" />
+   </children>
 </AnchorPane>

@@ -570,18 +570,47 @@ public class Controller implements Initializable {
 
 
     public void onClickAdmission(ActionEvent event){
+        intent= "admission";
+
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("upload_documents.fxml"));
+
+        try{
+            Parent root= (Parent) loader.load();
+
+            UploadDocuments uploadDocuments= loader.getController();
+
+            if(currentClickedStudent==null){
+                Alert alert= new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Select a row to be updated first");
+                alert.show();
+            }
+            else {
+                uploadDocuments.sendData(currentClickedStudent, intent);
+                Stage stage= new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Upload Admission Letter");
+                stage.show();
+            }
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 
     public void onClickOlevel(ActionEvent event){
+        intent= "olevel";
 
     }
 
     public void onClickGuarantor(ActionEvent event){
-
+        intent= "guarantor";
     }
 
     public void onClickJamb(ActionEvent event){
+        intent= "jamb";
+
 
     }
 
