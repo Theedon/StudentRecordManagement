@@ -69,14 +69,17 @@ public class UploadDocuments implements Initializable {
         }
 
         if (intent.equals("olevel")){
+            text_label.setText("O'LEVEL RESULT");
             imageDocument.setImage(olevel);
         }
 
         if (intent.equals("guarantor")){
+            text_label.setText("GUARANTOR LETTER");
             imageDocument.setImage(guarantor);
         }
 
         if (intent.equals("jamb")){
+            text_label.setText("JAMB LETTER");
             imageDocument.setImage(jamb);
         }
     }
