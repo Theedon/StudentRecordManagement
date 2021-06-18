@@ -61,10 +61,10 @@ public class UploadDocuments implements Initializable {
 
 
     public void sendData(Students currentClickedStudent, String intent){
+        classIntent= intent;
         students= currentClickedStudent;
         getImages();
         if (intent.equals("admission")){
-            classIntent = intent;
             imageDocument.setImage(admission);
         }
 
@@ -249,6 +249,7 @@ public class UploadDocuments implements Initializable {
     }
 
     public void onClickOpenDocument(ActionEvent event){
+        System.out.println(classIntent);
         if(classIntent.equals("admission")){
 
             FileChooser fileChooser = new FileChooser();
@@ -281,7 +282,7 @@ public class UploadDocuments implements Initializable {
 
         }
 
-        if(classIntent.equals("olevel")){
+        else if(classIntent.equals("olevel")){
             FileChooser fileChooser = new FileChooser();
             FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
             FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
@@ -310,7 +311,7 @@ public class UploadDocuments implements Initializable {
             }
         }
 
-        if(classIntent.equals("guarantor")){
+        else if(classIntent.equals("guarantor")){
             FileChooser fileChooser = new FileChooser();
             FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
             FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
@@ -340,7 +341,7 @@ public class UploadDocuments implements Initializable {
             }
         }
 
-        if(classIntent.equals("jamb")){
+        else if(classIntent.equals("jamb")){
 
             FileChooser fileChooser = new FileChooser();
             FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
