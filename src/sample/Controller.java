@@ -588,7 +588,7 @@ public class Controller implements Initializable {
                 uploadDocuments.sendData(currentClickedStudent, intent);
                 Stage stage= new Stage();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Upload Admission Letter");
+                stage.setTitle("Upload Document");
                 stage.show();
             }
 
@@ -618,7 +618,7 @@ public class Controller implements Initializable {
                 uploadDocuments.sendData(currentClickedStudent, intent);
                 Stage stage= new Stage();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Upload Admission Letter");
+                stage.setTitle("Upload Document");
                 stage.show();
             }
 
@@ -648,7 +648,7 @@ public class Controller implements Initializable {
                 uploadDocuments.sendData(currentClickedStudent, intent);
                 Stage stage= new Stage();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Upload Admission Letter");
+                stage.setTitle("Upload Document");
                 stage.show();
             }
 
@@ -677,7 +677,7 @@ public class Controller implements Initializable {
                 uploadDocuments.sendData(currentClickedStudent, intent);
                 Stage stage= new Stage();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Upload Admission Letter");
+                stage.setTitle("Upload Document");
                 stage.show();
             }
 
