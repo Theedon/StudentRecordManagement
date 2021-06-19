@@ -19,14 +19,26 @@
     -fx-font-family: verdana;
 }
 
+.button:hover{
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #800000;
+
+}
+
 .text-field{
     -fx-text-fill: #FFFFAB;
     -fx-font-size: 13px;
     -jfx-focus-color: -fx-secondary;
     -fx-background-color: #800000;
     -fx-border-color: #FFFFAB;
+    -fx-border-width: 0 0 1 0
 
 }
+
+.text-field:hover{
+    -fx-border-width: 1 1 1 1
+}
+
 
 .labels{
     -fx-text-fill: #FFFFAB;
