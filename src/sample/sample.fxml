@@ -24,7 +24,7 @@
       <Label layoutX="1013.0" layoutY="466.0" styleClass="labels" text="GENDER:" />
       <Button layoutX="687.0" layoutY="179.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="126.0" text="Upload passport" />
         <Button layoutX="1153.0" layoutY="99.0" mnemonicParsing="false" onAction="#onClickOlevel" prefHeight="25.0" prefWidth="151.0" text="O'LEVEL RESULT" />
-      <Button layoutX="1316.0" layoutY="2.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="26.0" text="Refresh" />
+      <Button layoutX="1282.0" layoutY="2.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="66.0" text="Refresh" />
       <Button layoutX="955.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Update" />
       <Button layoutX="1172.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Delete" />
       <Button layoutX="734.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Add" />
