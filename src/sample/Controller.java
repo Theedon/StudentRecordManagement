@@ -271,7 +271,7 @@ public class Controller implements Initializable {
         PreparedStatement preparedStatement;
 
 
-        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null) {
+        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -280,6 +280,12 @@ public class Controller implements Initializable {
         else if (ValidateInput.ValidateEmail(email)==false){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("make sure your email is correct");
+            alert.show();
+        }
+
+        else if(passportFileInputStream==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("please upload a passport");
             alert.show();
         }
 
@@ -329,6 +335,10 @@ public class Controller implements Initializable {
         String first_name= text_first_name.getText();
         String last_name= text_last_name.getText();
         String email= text_email.getText();
+        String matric_no= text_matric_no.getText();
+        String middle_name= text_middle_name.getText();
+        String faculty= text_faculty.getText();
+        String department= text_department.getText();
         RadioButton selectedGender;
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
@@ -344,7 +354,7 @@ public class Controller implements Initializable {
             alert.show();
         }
 
-        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null) {
+        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -353,6 +363,12 @@ public class Controller implements Initializable {
         else if (ValidateInput.ValidateEmail(email)==false){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("make sure your email is correct");
+            alert.show();
+        }
+
+        else if(passportFileInputStream==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("please upload a passport");
             alert.show();
         }
 
