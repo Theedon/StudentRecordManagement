@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -111,10 +112,17 @@ public class Controller implements Initializable {
     @FXML
     private ImageView passport_image;
 
+    @FXML
+    private ComboBox uploadCombo;
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> documentOptions= FXCollections.observableArrayList("Admission Letter",
+                "O'level Result", "Guarantor Letter", "Jamb Result");
+        uploadCombo.setItems(documentOptions);
+
 
 
         genderGroup= new ToggleGroup();
@@ -123,6 +131,8 @@ public class Controller implements Initializable {
 
 
         showStudents();
+
+
     }
 
     public ObservableList<Students> getStudentsList(){
@@ -585,7 +595,53 @@ public class Controller implements Initializable {
     */
 
 
-    public void onClickAdmission(ActionEvent event){
+    public void onClickUploadCombo(ActionEvent event){
+        if(uploadCombo.getValue().equals("Admission Letter")){
+            intent= "admission";
+        }
+
+        else if(uploadCombo.getValue().equals("O'level Result")){
+            intent= "olevel";
+        }
+
+        else if(uploadCombo.getValue().equals("Guarantor Letter")){
+            intent= "guarantor";
+        }
+
+        else if(uploadCombo.getValue().equals("Jamb Result")){
+            intent= "jamb";
+        }
+
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("upload_documents.fxml"));
+
+        try{
+            Parent root= (Parent) loader.load();
+
+            UploadDocuments uploadDocuments= loader.getController();
+
+            if(currentClickedStudent==null){
+                Alert alert= new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Select a row to be updated first");
+                alert.show();
+            }
+            else {
+                uploadDocuments.sendData(currentClickedStudent, intent);
+                Stage stage= new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Upload Document");
+                stage.show();
+            }
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    /* public void onClickAdmission(ActionEvent event){
         intent= "admission";
 
         FXMLLoader loader= new FXMLLoader(getClass().getResource("upload_documents.fxml"));
@@ -705,7 +761,7 @@ public class Controller implements Initializable {
 
     }
 
-
+*/
 
 
 
