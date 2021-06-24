@@ -50,3 +50,10 @@
     -fx-text-fill: #FFFFAB;
 
 }
+
+.combobox{
+        -fx-prompt-text-fill: #FFFFAB;
+         -fx-font-size: 13px;
+         -fx-border-color: #FFFFAB;
+
+}
