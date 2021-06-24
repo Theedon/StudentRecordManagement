@@ -7,7 +7,7 @@
 }
 
 .root{
-    -fx-background-color: #800000;
+    -fx-background-color: #333333;
 }
 
 .button{
@@ -29,7 +29,7 @@
     -fx-text-fill: #FFFFAB;
     -fx-font-size: 13px;
     -jfx-focus-color: -fx-secondary;
-    -fx-background-color: #800000;
+    -fx-background-color: #333333;
     -fx-border-color: #FFFFAB;
     -fx-border-width: 0 0 1 0
 
