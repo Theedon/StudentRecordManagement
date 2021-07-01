@@ -38,10 +38,37 @@ public class UploadDocuments implements Initializable {
     FileInputStream JambFileInputStream;
     int lenJamb;
 
+    FileInputStream BiodataFileInputStream;
+    int lenBiodata;
+
+    FileInputStream CourseFileInputStream;
+    int lenCourse;
+
+    FileInputStream LGAFileInputStream;
+    int lenLGA;
+
+    FileInputStream MedicalFileInputStream;
+    int lenMedical;
+
+    FileInputStream BirthFileInputStream;
+    int lenBirth;
+
+    FileInputStream SchoolFileInputStream;
+    int lenSchool;
+
+
+
     Image admission= null;
     Image olevel= null;
     Image guarantor= null;
     Image jamb= null;
+
+    Image biodata= null;
+    Image course= null;
+    Image lga= null;
+    Image medical= null;
+    Image birth_certificate= null;
+    Image school_fees= null;
 
     String classIntent;
 
@@ -82,6 +109,37 @@ public class UploadDocuments implements Initializable {
             text_label.setText("JAMB LETTER");
             imageDocument.setImage(jamb);
         }
+
+        if (intent.equals("biodata")){
+            text_label.setText("BIODATA FORM");
+            imageDocument.setImage(biodata);
+        }
+
+
+        if (intent.equals("course")){
+            text_label.setText("COURSE REGISTRATION FORM");
+            imageDocument.setImage(course);
+        }
+
+        if (intent.equals("lga")){
+            text_label.setText("LGA form");
+            imageDocument.setImage(lga);
+        }
+
+        if (intent.equals("medical")){
+            text_label.setText("MEDICAL CERTIFICATE");
+            imageDocument.setImage(medical);
+        }
+
+        if (intent.equals("school_fees")){
+            text_label.setText("SCHOOL FEES RECEIPT");
+            imageDocument.setImage(school_fees);
+        }
+
+        if (intent.equals("birth_certificate")){
+            text_label.setText("BIRTH CERTIFICATE");
+            imageDocument.setImage(birth_certificate);
+        }
     }
 
     public void getImages() {
@@ -90,7 +148,7 @@ public class UploadDocuments implements Initializable {
         Connection connection = databaseConnection.getConnection();
 
 
-        String query = "SELECT admission_img, olevel_img, guarantor_img, jamb_img FROM students WHERE id= " + id + "";
+        String query = "SELECT admission_img, olevel_img, guarantor_img, jamb_img, biodata_form, course_form, lga_certificate, medical_certificate, birth_certificate, school_fees FROM students WHERE id= " + id + "";
         Statement statement;
         ResultSet resultSet;
 
@@ -113,6 +171,23 @@ public class UploadDocuments implements Initializable {
                 InputStream jambInputStream = resultSet.getBinaryStream("jamb_img");
 
 
+                InputStream biodataInputStream = resultSet.getBinaryStream("biodata_form");
+
+
+                InputStream courseInputStream = resultSet.getBinaryStream("course_form");
+
+                InputStream lgaInputStream = resultSet.getBinaryStream("lga_certificate");
+
+                InputStream medicalInputStream = resultSet.getBinaryStream("medical_certificate");
+
+
+                InputStream birthInputStream = resultSet.getBinaryStream("birth_certificate");
+
+                InputStream schoolInputStream = resultSet.getBinaryStream("school_fees");
+
+
+
+
                 if (admissionInputStream != null) {
                     admission = new Image(admissionInputStream);
                 }
@@ -127,6 +202,32 @@ public class UploadDocuments implements Initializable {
 
                 if (jambInputStream != null) {
                     jamb = new Image(jambInputStream);
+                }
+
+
+                if (biodataInputStream != null) {
+                    biodata = new Image(biodataInputStream);
+                }
+
+
+                if (courseInputStream != null) {
+                    course = new Image(courseInputStream);
+                }
+
+                if (medicalInputStream != null) {
+                    medical = new Image(medicalInputStream);
+                }
+
+                if (lgaInputStream != null) {
+                    lga = new Image(lgaInputStream);
+                }
+
+                if (birthInputStream != null) {
+                    birth_certificate = new Image(birthInputStream);
+                }
+
+                if (schoolInputStream != null) {
+                    school_fees = new Image(schoolInputStream);
                 }
 
             }
@@ -249,10 +350,188 @@ public class UploadDocuments implements Initializable {
 
 
         }
+
+        if (classIntent.equals("biodata")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (BiodataFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET biodata_form= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, BiodataFileInputStream, lenBiodata);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+        if (classIntent.equals("course")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (CourseFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET course_form= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, CourseFileInputStream, lenCourse);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+        if (classIntent.equals("lga")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (LGAFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET lga_certificate= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, LGAFileInputStream, lenLGA);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+        if (classIntent.equals("medical")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (MedicalFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET medical_certificate= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, MedicalFileInputStream, lenMedical);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+        if (classIntent.equals("birth_certificate")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (BirthFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET birth_certificate= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, BirthFileInputStream, lenBirth);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+        if (classIntent.equals("school_fees")) {
+            DatabaseConnection databaseConnection = new DatabaseConnection();
+            Connection connection = databaseConnection.getConnection();
+            PreparedStatement preparedStatement;
+
+
+            if (SchoolFileInputStream == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("make sure you have uploaded the required document");
+                alert.show();
+            } else {
+                try {
+                    preparedStatement = connection.prepareStatement("UPDATE students SET school_fees= ? WHERE id= ?");
+                    preparedStatement.setBinaryStream(1, SchoolFileInputStream, lenSchool);
+                    preparedStatement.setInt(2, students.getId());
+                    preparedStatement.execute();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setContentText("successful");
+                    alert.show();
+                    Stage stage = (Stage) imageDocument.getScene().getWindow();
+                    stage.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
+
+
+
     }
 
     public void onClickOpenDocument(ActionEvent event){
         System.out.println(classIntent);
+
         if(classIntent.equals("admission")){
 
             FileChooser fileChooser = new FileChooser();
@@ -364,6 +643,198 @@ public class UploadDocuments implements Initializable {
 
                     JambFileInputStream = fileInputStream;
                     lenJamb = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("biodata")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    BiodataFileInputStream = fileInputStream;
+                    lenBiodata = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("course")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    CourseFileInputStream = fileInputStream;
+                    lenCourse = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("lga")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    LGAFileInputStream = fileInputStream;
+                    lenLGA = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("medical")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    MedicalFileInputStream = fileInputStream;
+                    lenMedical = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("school_fees")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    SchoolFileInputStream = fileInputStream;
+                    lenSchool = len;
+                } else {
+                    //do nothing
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        else if(classIntent.equals("birth_certificate")){
+
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(ext1, ext2);
+            File file = fileChooser.showOpenDialog(imageDocument.getScene().getWindow());
+
+
+            BufferedImage bufferedImage;
+            try {
+                if (file != null) {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageDocument.setImage(image);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    int len = (int) file.length();
+
+                    BirthFileInputStream = fileInputStream;
+                    lenBirth = len;
                 } else {
                     //do nothing
                 }
