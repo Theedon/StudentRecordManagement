@@ -120,7 +120,8 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> documentOptions= FXCollections.observableArrayList("Admission Letter",
-                "O'level Result", "Guarantor Letter", "Jamb Result");
+                "O'level Result", "Guarantor Letter", "Jamb Result", "Biodata Form", "Course Form", "LGA Certificate",
+                "Medical Certificate", "School Fees Receipt" + "Birth Certificate");
         uploadCombo.setItems(documentOptions);
 
 
