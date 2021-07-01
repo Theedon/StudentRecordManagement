@@ -613,6 +613,35 @@ public class Controller implements Initializable {
             intent= "jamb";
         }
 
+
+        else if(uploadCombo.getValue().equals("Biodata Form")){
+            intent= "biodata";
+        }
+
+        else if(uploadCombo.getValue().equals("Course Form")){
+            intent= "course";
+        }
+
+        else if(uploadCombo.getValue().equals("LGA Certificate")){
+            intent= "lga";
+        }
+
+        else if(uploadCombo.getValue().equals("Medical Certificate")){
+            intent= "medical";
+        }
+
+        else if(uploadCombo.getValue().equals("School Fees Receipt")){
+            intent= "school_fees";
+        }
+
+        else if(uploadCombo.getValue().equals("Birth Certificate")){
+            intent= "birth_certificate";
+        }
+
+
+
+
+
         FXMLLoader loader= new FXMLLoader(getClass().getResource("upload_documents.fxml"));
 
         try{
