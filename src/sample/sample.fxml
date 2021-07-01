@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <TableView fx:id="tvPhoneTable" layoutX="3.0" layoutY="2.0" onMouseClicked="#onTableRowClicked" prefHeight="650.0" prefWidth="612.0" styleClass="tableview">
+        <TableView fx:id="tvPhoneTable" layoutX="7.0" layoutY="10.0" onMouseClicked="#onTableRowClicked" prefHeight="632.0" prefWidth="608.0" styleClass="tableview">
             <columns>
                 <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="29.0" text="S/N" />
                 <TableColumn fx:id="col_id" prefWidth="24.0" text="ID" />
@@ -23,7 +23,7 @@
       <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="167.0" layoutX="772.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="1020.0" layoutY="272.0" styleClass="labels" text="GENDER:" />
       <Button layoutX="796.0" layoutY="478.0" mnemonicParsing="false" onAction="#onClickUploadPassport" prefHeight="25.0" prefWidth="119.0" text="Upload passport" />
-      <Button layoutX="1282.0" layoutY="2.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="66.0" text="Refresh" />
+      <Button layoutX="1274.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickClear" prefHeight="25.0" prefWidth="66.0" text="Refresh" />
       <Button layoutX="933.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Update" />
       <Button layoutX="1172.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Delete" />
       <Button layoutX="672.0" layoutY="559.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="56.0" prefWidth="159.0" styleClass="buttons" text="Add" />
