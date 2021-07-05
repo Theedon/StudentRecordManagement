@@ -46,6 +46,7 @@
       <TextField fx:id="text_email" layoutX="1109.0" layoutY="192.0" prefHeight="31.0" prefWidth="233.0" promptText="E-mail" />
       <TextField fx:id="text_matric_no" layoutX="1108.0" layoutY="129.0" prefHeight="31.0" prefWidth="233.0" promptText="Matric no" />
       <ComboBox fx:id="uploadCombo" layoutX="1056.0" layoutY="475.0" onAction="#onClickUploadCombo" prefHeight="31.0" prefWidth="174.0" promptText="Upload Documents" styleClass="combobox" />
+      <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" text="View Student" onAction="#onClickViewStudent"  />
         
     </children>
 </AnchorPane>
