@@ -793,7 +793,33 @@ public class Controller implements Initializable {
 
 */
 
+    public void onClickViewStudent(ActionEvent event){
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("view_student.fxml"));
 
+        try{
+            Parent root= (Parent) loader.load();
+
+            ViewStudentController viewStudentController= loader.getController();
+
+            if(currentClickedStudent==null){
+                Alert alert= new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Select a student to be viewed");
+                alert.show();
+            }
+            else {
+                viewStudentController.sendData(currentClickedStudent);
+                Stage stage= new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("View Student");
+                stage.show();
+            }
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
 
 
 }
