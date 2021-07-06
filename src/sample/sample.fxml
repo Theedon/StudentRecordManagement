@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <TableView fx:id="tvPhoneTable" layoutX="7.0" layoutY="10.0" onMouseClicked="#onTableRowClicked" prefHeight="632.0" prefWidth="608.0" styleClass="tableview">
+        <TableView fx:id="tvPhoneTable" layoutX="7.0" layoutY="43.0" onMouseClicked="#onTableRowClicked" prefHeight="600.0" prefWidth="615.0" styleClass="tableview">
             <columns>
                 <TableColumn fx:id="col_sn" minWidth="0.0" prefWidth="29.0" text="S/N" />
                 <TableColumn fx:id="col_id" prefWidth="24.0" text="ID" />
@@ -46,7 +46,8 @@
       <TextField fx:id="text_email" layoutX="1109.0" layoutY="192.0" prefHeight="31.0" prefWidth="233.0" promptText="E-mail" />
       <TextField fx:id="text_matric_no" layoutX="1108.0" layoutY="129.0" prefHeight="31.0" prefWidth="233.0" promptText="Matric no" />
       <ComboBox fx:id="uploadCombo" layoutX="1056.0" layoutY="475.0" onAction="#onClickUploadCombo" prefHeight="31.0" prefWidth="174.0" promptText="Upload Documents" styleClass="combobox" />
-      <Button layoutX="625.0" layoutY="10.0" mnemonicParsing="false" text="View Student" onAction="#onClickViewStudent"  />
+      <Button layoutX="636.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickViewStudent" text="View Student" />
+      <TextField id="searchField" fx:id="search_box" layoutX="7.0" layoutY="8.0" onKeyTyped="#onSearchKey" prefHeight="15.0" prefWidth="615.0" promptText="search" styleClass="searchField" />
         
     </children>
 </AnchorPane>

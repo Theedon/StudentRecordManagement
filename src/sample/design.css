@@ -53,9 +53,18 @@
     -fx-text-fill: #FFFFAB;
     -fx-font-size: 13px;
     -jfx-focus-color: -fx-secondary;
-    -fx-background-color: #ddd6f3;
+    -fx-background-color: #614385;
     -fx-border-color: #FFFFAB;
     -fx-border-width: 0 0 1 0
+
+}
+
+.searchField{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+
+    -fx-border-color: #FFFFAB;
+    -fx-border-width: 1 1 1 1
 
 }
 

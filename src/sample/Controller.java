@@ -3,6 +3,8 @@ package sample;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -106,14 +109,17 @@ public class Controller implements Initializable {
     @FXML
     private RadioButton Female;
 
-
-
-
     @FXML
     private ImageView passport_image;
 
     @FXML
     private ComboBox uploadCombo;
+
+    @FXML
+    private TextField search_box;
+
+    ObservableList<Students> masterData= FXCollections.observableArrayList();
+    ObservableList<Students> filteredList= FXCollections.observableArrayList();
 
 
 
@@ -234,6 +240,7 @@ public class Controller implements Initializable {
         catch (SQLException e){
             e.printStackTrace();
         }
+        masterData= studentsList;
         return studentsList;
     }
 
@@ -818,6 +825,28 @@ public class Controller implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
+
+    }
+
+    public void onSearchKey(KeyEvent event){
+        FilteredList<Students> filterData= new FilteredList<>(masterData, p->true);
+
+        search_box.textProperty().addListener(((observableValue, oldvalue, newvalue) ->{
+            filterData.setPredicate(pers -> {
+                if(newvalue == null || newvalue.isEmpty()){
+                    return true;
+                }
+                String typedText= newvalue.toLowerCase();
+                if(pers.getMatric_no().toLowerCase().indexOf(typedText) != -1){
+                    return true;
+                }
+                return false;
+            });
+            SortedList<Students> sortedList= new SortedList<>(filterData);
+            sortedList.comparatorProperty().bind(tvPhoneTable.comparatorProperty());
+            tvPhoneTable.setItems(sortedList);
+        }
+                ));
 
     }
 
