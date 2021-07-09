@@ -14,6 +14,7 @@ public class Students {
     private String matric_no;
     private String faculty;
     private String department;
+    private String level;
     private Image passport;
     private Image admission_img;
     private Image olevel_img;
@@ -21,7 +22,7 @@ public class Students {
     private Image jamb_img;
 
 
-    public Students(int serialNumber, int id, String firstName, String middleName, String lastName, String email, String gender, String matric_no, String faculty, String department, Image passport, Image admission_img, Image olevel_img, Image guarantor_img, Image jamb_img) {
+    public Students(int serialNumber, int id, String firstName, String middleName, String lastName, String email, String gender, String matric_no, String faculty, String department, String level, Image passport, Image admission_img, Image olevel_img, Image guarantor_img, Image jamb_img) {
         this.serialNumber = serialNumber;
         this.id = id;
         this.firstName = firstName;
@@ -32,6 +33,7 @@ public class Students {
         this.matric_no = matric_no;
         this.faculty = faculty;
         this.department = department;
+        this.level= level;
         this.passport = passport;
         this.admission_img = admission_img;
         this.olevel_img = olevel_img;
@@ -125,6 +127,14 @@ public class Students {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public Image getPassport() {
