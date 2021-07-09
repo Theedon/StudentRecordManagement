@@ -395,13 +395,18 @@ public class Controller implements Initializable {
 
 
             try{
-                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, passport= ? WHERE id= ?");
+                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, matric_no= ?, middle_name= ?, faculty= ?, department= ?, passport= ? WHERE id= ?");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
                 preparedStatement.setString(4, gender);
-                preparedStatement.setBinaryStream(5, passportFileInputStream, passportLength);
-                preparedStatement.setInt(6, currentClickedStudent.getId());
+                preparedStatement.setString(5, matric_no);
+                preparedStatement.setString(6, middle_name);
+                preparedStatement.setString(7, faculty);
+                preparedStatement.setString(8, department);
+
+                preparedStatement.setBinaryStream(9, passportFileInputStream, passportLength);
+                preparedStatement.setInt(10, currentClickedStudent.getId());
 
 
 
