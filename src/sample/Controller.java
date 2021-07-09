@@ -110,6 +110,21 @@ public class Controller implements Initializable {
     private RadioButton Female;
 
     @FXML
+    ToggleGroup levelGroup;
+
+    @FXML
+    private RadioButton level100;
+
+    @FXML
+    private RadioButton level200;
+
+    @FXML
+    private RadioButton level300;
+
+    @FXML
+    private RadioButton level400;
+
+    @FXML
     private ImageView passport_image;
 
     @FXML
@@ -135,6 +150,12 @@ public class Controller implements Initializable {
         genderGroup= new ToggleGroup();
         Male.setToggleGroup(genderGroup);
         Female.setToggleGroup(genderGroup);
+
+        levelGroup= new ToggleGroup();
+        level100.setToggleGroup(levelGroup);
+        level200.setToggleGroup(levelGroup);
+        level300.setToggleGroup(levelGroup);
+        level400.setToggleGroup(levelGroup);
 
 
         showStudents();
@@ -284,6 +305,7 @@ public class Controller implements Initializable {
 
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
+
 
 
         PreparedStatement preparedStatement;
