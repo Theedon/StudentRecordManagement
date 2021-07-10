@@ -15,9 +15,10 @@
                 <TableColumn fx:id="col_middle_name" minWidth="0.0" prefWidth="63.0" text="MIDDLE NAME" />
                 <TableColumn fx:id="col_last_name" prefWidth="76.0" text="LAST NAME" />
             <TableColumn fx:id="col_gender" minWidth="0.0" prefWidth="56.0" text="GENDER" />
-                <TableColumn fx:id="col_email" prefWidth="61.0" text="E-MAIL" />
-            <TableColumn fx:id="col_department" minWidth="0.0" prefWidth="94.0" text="DEPARTMENT" />
-            <TableColumn fx:id="col_faculty" minWidth="0.0" prefWidth="56.0" text="FACULTY" />
+            <TableColumn fx:id="col_level" minWidth="0.0" prefWidth="47.0" text="LEVEL" />
+                <TableColumn fx:id="col_email" prefWidth="48.0" text="E-MAIL" />
+            <TableColumn fx:id="col_department" minWidth="0.0" prefWidth="61.0" text="DEPARTMENT" />
+            <TableColumn fx:id="col_faculty" minWidth="0.0" prefWidth="57.0" text="FACULTY" />
             </columns>
         </TableView>
       <ImageView fx:id="passport_image" fitHeight="132.0" fitWidth="167.0" layoutX="772.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
@@ -49,12 +50,12 @@
       <Button layoutX="636.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickViewStudent" text="View Student" />
       <TextField id="searchField" fx:id="search_box" layoutX="7.0" layoutY="8.0" onKeyTyped="#onSearchKey" prefHeight="15.0" prefWidth="615.0" promptText="search" styleClass="searchField" />
       <Label layoutX="1024.0" layoutY="281.0" styleClass="labels" text="LEVEL" />
-      <RadioButton fx:id="level100" layoutX="1220.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="300">
+      <RadioButton fx:id="level300" layoutX="1220.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="300">
           <ToggleGroup fx:id="levelGroup" />
       </RadioButton>
-      <RadioButton fx:id="level200" layoutX="1274.0" layoutY="280.0" mnemonicParsing="false" styleClass="radio" text="400" />
-      <RadioButton fx:id="level300" layoutX="1161.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="200" />
-      <RadioButton fx:id="level400" layoutX="1104.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="100" />
+      <RadioButton fx:id="level400" layoutX="1274.0" layoutY="280.0" mnemonicParsing="false" styleClass="radio" text="400" />
+      <RadioButton fx:id="level200" layoutX="1161.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="200" />
+      <RadioButton fx:id="level100" layoutX="1104.0" layoutY="278.0" mnemonicParsing="false" styleClass="radio" text="100" />
         
     </children>
 </AnchorPane>

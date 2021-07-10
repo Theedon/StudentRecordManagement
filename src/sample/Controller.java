@@ -74,6 +74,9 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Students, String> col_department;
 
+    @FXML
+    private TableColumn<Students, String> col_level;
+
 
 
 
@@ -243,6 +246,7 @@ public class Controller implements Initializable {
                         resultSet.getString("matric_no"),
                         resultSet.getString("faculty"),
                         resultSet.getString("department"),
+                        resultSet.getString("level"),
                         passport,
                         admission,
                         olevel,
@@ -279,6 +283,8 @@ public class Controller implements Initializable {
         col_faculty.setCellValueFactory(new PropertyValueFactory<Students, String>("faculty"));
         col_department.setCellValueFactory(new PropertyValueFactory<Students, String>("department"));
         col_matric_no.setCellValueFactory(new PropertyValueFactory<Students, String>("matric_no"));
+        col_level.setCellValueFactory(new PropertyValueFactory<Students, String>("level"));
+
 
 
 
@@ -302,16 +308,19 @@ public class Controller implements Initializable {
         String faculty= text_faculty.getText();
         String department= text_department.getText();
         RadioButton selectedGender;
+        RadioButton selectedLevel;
 
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
+
+        selectedLevel= ((RadioButton) levelGroup.getSelectedToggle());
 
 
 
         PreparedStatement preparedStatement;
 
 
-        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
+        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || selectedLevel == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -331,11 +340,12 @@ public class Controller implements Initializable {
 
         else {
             String gender= selectedGender.getText();
+            String level= selectedLevel.getText();
 
 
             try{
-                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, matric_no,  middle_name, faculty, department, passport)" +
-                        "VALUES(?,?,?,?,?,?,?,?,?)");
+                preparedStatement= connection.prepareStatement("INSERT INTO students (first_name, last_name, email, gender, matric_no,  middle_name, faculty, department, level, passport)" +
+                        "VALUES(?,?,?,?,?,?,?,?,?,?)");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
@@ -344,8 +354,9 @@ public class Controller implements Initializable {
                 preparedStatement.setString(6, middle_name);
                 preparedStatement.setString(7, faculty);
                 preparedStatement.setString(8, department);
+                preparedStatement.setString(9, level);
 
-                preparedStatement.setBinaryStream(9, passportFileInputStream, passportLength);
+                preparedStatement.setBinaryStream(10, passportFileInputStream, passportLength);
 
 
 
@@ -380,8 +391,10 @@ public class Controller implements Initializable {
         String faculty= text_faculty.getText();
         String department= text_department.getText();
         RadioButton selectedGender;
+        RadioButton selectedLevel;
 
         selectedGender= ((RadioButton) genderGroup.getSelectedToggle());
+        selectedLevel= ((RadioButton) levelGroup.getSelectedToggle());
 
 
 
@@ -394,7 +407,7 @@ public class Controller implements Initializable {
             alert.show();
         }
 
-        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
+        else if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || selectedGender == null || selectedLevel == null || middle_name.isEmpty() || faculty.isEmpty() || department.isEmpty() || matric_no.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please fill out the fields");
             alert.show();
@@ -414,10 +427,11 @@ public class Controller implements Initializable {
 
         else {
             String gender = selectedGender.getText();
+            String level= selectedLevel.getText();
 
 
             try{
-                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, matric_no= ?, middle_name= ?, faculty= ?, department= ?, passport= ? WHERE id= ?");
+                preparedStatement= connection.prepareStatement("UPDATE students SET first_name= ?, last_name=?, email=?, gender=?, matric_no= ?, middle_name= ?, faculty= ?, department= ?, level=?, passport= ? WHERE id= ?");
                 preparedStatement.setString(1, first_name);
                 preparedStatement.setString(2, last_name);
                 preparedStatement.setString(3, email);
@@ -426,9 +440,11 @@ public class Controller implements Initializable {
                 preparedStatement.setString(6, middle_name);
                 preparedStatement.setString(7, faculty);
                 preparedStatement.setString(8, department);
+                preparedStatement.setString(9, level);
 
-                preparedStatement.setBinaryStream(9, passportFileInputStream, passportLength);
-                preparedStatement.setInt(10, currentClickedStudent.getId());
+
+                preparedStatement.setBinaryStream(10, passportFileInputStream, passportLength);
+                preparedStatement.setInt(11, currentClickedStudent.getId());
 
 
 
@@ -505,6 +521,19 @@ public class Controller implements Initializable {
             genderGroup.selectToggle(Female);
         }
 
+        if(currentClickedStudent.getLevel().equals("100")){
+            levelGroup.selectToggle(level100);
+        }
+        else if(currentClickedStudent.getLevel().equals("200")) {
+            levelGroup.selectToggle(level200);
+        }
+        else if(currentClickedStudent.getLevel().equals("300")) {
+            levelGroup.selectToggle(level300);
+        }
+        else if(currentClickedStudent.getLevel().equals("400")) {
+            levelGroup.selectToggle(level400);
+        }
+
 
     }
 
@@ -521,6 +550,7 @@ public class Controller implements Initializable {
         text_faculty.setText(null);
         text_department.setText(null);
         genderGroup.selectToggle(null);
+        levelGroup.selectToggle(null);
         passport_image.setImage(null);
         currentClickedStudent= null;
     }
@@ -535,6 +565,7 @@ public class Controller implements Initializable {
         text_faculty.setText(null);
         text_department.setText(null);
         genderGroup.selectToggle(null);
+        levelGroup.selectToggle(null);
         passport_image.setImage(null);
         currentClickedStudent= null;
     }
